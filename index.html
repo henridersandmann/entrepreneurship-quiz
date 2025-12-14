@@ -583,14 +583,72 @@
         };
 
         const guestSummaryData = {
-            'g1': 'Streavent - Felix Schwencke',
-            'g2': 'Medea Biopharma - Giorgi Khubua',
-            'g5': 'Building Atlas - Olga Khroustaleva',
-            'g3': 'TUM Hyperloop - Domenik Radeck',
-            'g6': 'Radical dot - Fabian Knappich',
-            'g7': 'Aenu - Melina Sanchez Montanes',
-            'g8': 'Farminsect - Wolfgang Westermeier',
-            'g9': 'Treesense - Semir Babajic'
+            'g1': `
+                <h4 class="font-bold text-lg mb-2">Streavent - Felix Schwencke</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Biography:</strong> Entrepreneurial since childhood (selling fruits). Studied Mech. Eng. at TUM. Founded "Placetag" (social network, failed) and "Cultivata" (failed). Founded Streavent with co-founder met in China.</li>
+                    <li><strong>Business Model:</strong> SaaS for event management (All-in-one: tickets, app, livestream, check-in). "Pay-per-attendee". Product-led growth (self-onboarding).</li>
+                    <li><strong>History:</strong> Bootstrapped from 0 to €160k revenue in 5 months (2020). Pivoted to digital events during Corona.</li>
+                    <li><strong>Highs:</strong> Winning TIE2 competition, Olaf Scholz used product, first paycheck.</li>
+                    <li><strong>Lows:</strong> Event crashed (6-figure insurance claim), technical failure with big customer (Phillips).</li>
+                    <li><strong>Lessons:</strong> Resilience increases. "Level Up" with each project. Network quality increases. Adapt fast (Covid).</li>
+                </ul>`,
+            'g2': `
+                <h4 class="font-bold text-lg mb-2">Medea Biopharma - Giorgi Khubua</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Biography:</strong> TUM SOM student. Founded "SolosMirrors" (sold 2020). Started Medea.</li>
+                    <li><strong>Problem/Solution:</strong> Bacterial resistance (10M deaths by 2050). Solution: New class of antibacterial solutions using phages and automated microbiology.</li>
+                    <li><strong>History:</strong> Founded 2023. Received grants and 2 VC funds. Won international awards. Established security-level 2 lab.</li>
+                    <li><strong>Lessons:</strong> Don't need to be a tech expert to lead a tech startup (need team expertise). Build prototype -> Sell -> Iterate. Many fail due to "features without users".</li>
+                </ul>`,
+            'g5': `
+                <h4 class="font-bold text-lg mb-2">Building Atlas - Olga Khroustaleva</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Biography:</strong> 17 years at Google (Product/UX). Left to fight climate change (buildings = 40% global emissions).</li>
+                    <li><strong>Business Model:</strong> AI platform to help owners of large real estate portfolios retrofit buildings. Models energy use, retrofit costs, and ROI.</li>
+                    <li><strong>Market:</strong> "Retrofitting" existing buildings to be green/compliant. $1T market by 2025.</li>
+                    <li><strong>Challenges:</strong> Public sector funding struggles. Climate protection priority dropped in 2023.</li>
+                    <li><strong>Lessons:</strong> "Expand or die". Conditions change and can destroy business models. Never be the smartest person in the room.</li>
+                </ul>`,
+            'g3': `
+                <h4 class="font-bold text-lg mb-2">TUM Hyperloop - Domenik Radeck</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Strategy:</strong> Technology needs societal adaptation. Focus on Funding, Demand/Route Viability, Economic Viability, and Legitimacy.</li>
+                    <li><strong>History:</strong> Won Elon Musk's competition 4 years in a row. Built 24m real-size segment in Ottobrunn.</li>
+                    <li><strong>Vision:</strong> 600km/h, direct travel. 5-20 passengers per vessel.</li>
+                    <li><strong>Lessons:</strong> Clear goals/deadlines enable fast dev. Keep calm in stress. Push suppliers.</li>
+                </ul>`,
+            'g6': `
+                <h4 class="font-bold text-lg mb-2">Radical dot - Fabian Knappich</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Problem:</strong> >90% of plastic is not recycled. Traditional recycling is not profitable (Green Premium).</li>
+                    <li><strong>Solution:</strong> Turning unrecyclable plastic waste into carbocidic acids (for new plastics, shoes, glues) via chemical recycling. Lower feedstock cost -> higher margin.</li>
+                    <li><strong>History:</strong> Bootstrapped (€5k). Collaboration with TUM Venture Labs. Pre-seed round €2.7M (Jan 2025).</li>
+                    <li><strong>Roadmap:</strong> TRL 5-6 (Prototype) -> TRL 7 (First plant) -> TRL 8 (Licensing).</li>
+                </ul>`,
+            'g7': `
+                <h4 class="font-bold text-lg mb-2">Aenu - Melina Sanchez Montanes</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Mission:</strong> VC backing commercially superior climate-tech startups (Energy, Decarbonization).</li>
+                    <li><strong>Focus:</strong> Early stage, Europe. €1-5M tickets. 10% ownership target.</li>
+                    <li><strong>Impact Framework:</strong> Integrity (Intentionality, Logic, Additionality) + Potential (Unit Impact, Scale).</li>
+                    <li><strong>Advice:</strong> Raise from Family/Friends first. VCs need a product/team.</li>
+                </ul>`,
+            'g8': `
+                <h4 class="font-bold text-lg mb-2">Farminsect - Wolfgang Westermeier</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Business Model:</strong> Decentralized insect farming to replace soy/fish meal in animal feed. Sustainable protein from regional food waste.</li>
+                    <li><strong>Revenue:</strong> Selling Production Platform (Hardware), Selling Larvae (Genetics), Buyback/Resale of insects.</li>
+                    <li><strong>Challenges:</strong> Building supply chain from scratch. Market immaturity. Capital intensive.</li>
+                    <li><strong>Lessons:</strong> Focus on cash efficiency. Build leadership team. Deep partnerships.</li>
+                </ul>`,
+            'g9': `
+                <h4 class="font-bold text-lg mb-2">Treesense - Semir Babajic</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Problem:</strong> Urban trees are expensive to maintain (€5000) and need precise watering.</li>
+                    <li><strong>Solution:</strong> Sensors measuring electrical resistance in xylem (real-time health data). Saves 93% watering costs.</li>
+                    <li><strong>History:</strong> Bootstrapped. Sold pilot projects fast to prove value. Successful in Munich.</li>
+                </ul>`
         };
 
         // --- FLASHCARD MANAGER ---
@@ -994,10 +1052,20 @@
 
             // Render Guest Lectures
             guestList.innerHTML = guestLectures.map(guest => {
+                const content = guestSummaryData[guest.id];
+                if (!content) return '';
+
                 return `
-                <div class="border border-gray-200 rounded-xl p-4 bg-gray-50 text-gray-500">
-                    <div class="font-bold">${guest.name}</div>
-                    <div class="text-xs mt-1">Summary available in original document.</div>
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleSummary('${guest.id}')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left">
+                        <span class="font-bold text-gray-800">${guest.name}</span>
+                        <svg id="icon-${guest.id}" class="w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="content-${guest.id}" class="hidden p-4 bg-white border-t border-gray-100 text-sm leading-relaxed">
+                        ${content}
+                    </div>
                 </div>`;
             }).join('');
         }
