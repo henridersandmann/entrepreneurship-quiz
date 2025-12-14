@@ -98,16 +98,17 @@
                 </button>
 
                 <!-- Mode: Summaries -->
-                <button
-                    class="group relative bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-all duration-300 text-left opacity-60 cursor-not-allowed">
-                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                <button onclick="showSummaries()"
+                    class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 text-left">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                         <svg class="w-24 h-24 text-green-600" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Summaries</h3>
-                    <p class="text-gray-500">Quick review sheets for each topic. (Coming Soon)</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
+                        Summaries</h3>
+                    <p class="text-gray-500">Quick review sheets for each topic.</p>
                 </button>
 
                 <!-- Mode: Flashcards -->
@@ -146,6 +147,34 @@
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Guest Lectures</h2>
             <div id="guests-list" class="grid gap-4 md:grid-cols-2">
                 <!-- Guests injected here -->
+            </div>
+        </div>
+
+        <!-- 2.2 SUMMARY SCREEN -->
+        <div id="summary-screen" class="hidden fade-in">
+            <button onclick="showMenu()"
+                class="mb-6 flex items-center text-gray-500 hover:text-gray-900 transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Menu
+            </button>
+
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Topic Summaries</h2>
+
+            <div class="space-y-4 mb-10">
+                <h3 class="text-xl font-semibold text-gray-700">Lecture Topics</h3>
+                <div id="lecture-summaries-list" class="space-y-3">
+                    <!-- Summaries injected here -->
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-xl font-semibold text-gray-700">Guest Lectures</h3>
+                <div id="guest-summaries-list" class="space-y-3">
+                    <!-- Guest summaries injected here -->
+                </div>
             </div>
         </div>
 
@@ -404,6 +433,165 @@
         // Mapped Questions (Added topicId)
         // Initialize Question IDs
 
+
+        // --- SUMMARY DATA ---
+        const summaryData = {
+            't1': `
+                <h4 class="font-bold text-lg mb-2">Introduction</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Entrepreneurship:</strong> Building an organization to produce/deliver a product, mobilizing resources (capital, human, network), and exercising leadership.</li>
+                    <li><strong>Economic Engine:</strong> "Creative Destruction" (Schumpeter) - new/better products make old ones obsolete. Higher entrepreneur density = higher economic growth.</li>
+                    <li><strong>Origin:</strong> Necessity-Driven (developing countries) vs. Opportunity-Driven (developed countries).</li>
+                    <li><strong>Types:</strong>
+                        <ul class="list-circle pl-5 mt-1">
+                            <li>Social: Focus on social needs (e.g., poverty).</li>
+                            <li>Environmental: Focus on environmental degradation.</li>
+                            <li>Sustainable: Economic + Social + Ecological goals (Triple Bottom Line).</li>
+                        </ul>
+                    </li>
+                </ul>`,
+            't2': `
+                <h4 class="font-bold text-lg mb-2">The Entrepreneurial Personality</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>"The entrepreneur is the firm":</strong> Founders' personality shapes the young company.</li>
+                    <li><strong>Big Five (OCEAN):</strong>
+                        <ul class="list-circle pl-5 mt-1">
+                            <li>Openness: Higher (creative, curious).</li>
+                            <li>Conscientiousness: Higher (organized, trustworthy).</li>
+                            <li>Extraversion: Not significant.</li>
+                            <li>Agreeableness: Lower (skeptical, self-centered).</li>
+                            <li>Neuroticism: Lower (emotionally stable).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Motives:</strong> Need for Achievement (high standards), Need for Autonomy (independence).</li>
+                    <li><strong>Passion:</strong> Harmonious (good feeling) vs. Obsessive (bad feeling when not working).</li>
+                </ul>`,
+            't3': `
+                <h4 class="font-bold text-lg mb-2">Entrepreneurial Opportunities</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Definition:</strong> Opportunities to meet market needs with value-creating products/services.</li>
+                    <li><strong>Discovery:</strong> Requires Creativity, Knowledge, and Networks.</li>
+                    <li><strong>Creativity:</strong> Divergent Thinking (generating many ideas) vs. Convergent Thinking (narrowing down). Techniques: SCAMPER, Analogies.</li>
+                    <li><strong>Knowledge:</strong> Prior experience determines what opportunities you see ("Knowledge Corridor").</li>
+                    <li><strong>Network:</strong> Crucial for information on changes (tech, social, regulatory).</li>
+                </ul>`,
+            't4': `
+                <h4 class="font-bold text-lg mb-2">Decision Making (Effectuation)</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Risk vs. Uncertainty:</strong> Risk is calculable; Uncertainty is not.</li>
+                    <li><strong>Causation (Managerial):</strong> Goal-driven ("Cookbook"). Good for predictable environments.</li>
+                    <li><strong>Effectuation (Entrepreneurial):</strong> Means-driven ("Fridge"). Good for uncertainty.</li>
+                    <li><strong>4 Principles:</strong>
+                        <ul class="list-circle pl-5 mt-1">
+                            <li>Bird-in-Hand: Start with who you are, what you know, whom you know.</li>
+                            <li>Affordable Loss: Risk only what you can lose.</li>
+                            <li>Crazy Quilt: Form partnerships.</li>
+                            <li>Lemonade: Leverage surprises.</li>
+                        </ul>
+                    </li>
+                </ul>`,
+            't5': `
+                <h4 class="font-bold text-lg mb-2">Design Thinking</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Core:</strong> Human-centered innovation integrating Desirability (Human), Feasibility (Tech), and Viability (Business).</li>
+                    <li><strong>Process (Iterative):</strong>
+                        <ol class="list-decimal pl-5 mt-1">
+                            <li>Empathize: Understand users (Observation > Surveys).</li>
+                            <li>Define: Create an actionable problem statement.</li>
+                            <li>Ideate: Generate many options (Brainstorming).</li>
+                            <li>Prototype: Build "quick and dirty" models.</li>
+                            <li>Test: Validate solutions.</li>
+                        </ol>
+                    </li>
+                </ul>`,
+            't6': `
+                <h4 class="font-bold text-lg mb-2">Prototyping</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Definition:</strong> An unfinished model used as a learning tool ("Stepping Stone").</li>
+                    <li><strong>Purpose:</strong> Test ideas, gather feedback, fail early and cheaply.</li>
+                    <li><strong>Fail Early:</strong> Cost of failure increases exponentially over time.</li>
+                    <li><strong>Phases:</strong> Inspiring (Low-res sketches) -> Evolving (Narrowing down) -> Validating (Integration).</li>
+                </ul>`,
+            't7': `
+                <h4 class="font-bold text-lg mb-2">Business Modeling</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Definition:</strong> Logic of how a firm creates, delivers, and captures value.</li>
+                    <li><strong>Business Model Canvas (9 Blocks):</strong>
+                        <ul class="list-circle pl-5 mt-1">
+                            <li>Front End: Value Prop, Customer Segments, Channels, Relationships, Revenue.</li>
+                            <li>Back End: Key Resources, Activities, Partners, Cost Structure.</li>
+                        </ul>
+                    </li>
+                </ul>`,
+            't8': `
+                <h4 class="font-bold text-lg mb-2">Entrepreneurial Finance</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Cash Flow:</strong> Starts negative ("Valley of Death"). Burn Rate = spending speed. Runway = time left.</li>
+                    <li><strong>Sources:</strong>
+                        <ul class="list-circle pl-5 mt-1">
+                            <li>Bootstrapping: Own resources + revenue (Full control, slow growth).</li>
+                            <li>Debt: Loans (Must repay + interest).</li>
+                            <li>Equity: Investors get shares (VCs, Angels). No repayment, but loss of ownership.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Investors:</strong> Angels (Individuals, Seed stage) vs. VCs (Funds, Growth stage, high return targets).</li>
+                    <li><strong>Exit:</strong> Trade Sale, IPO, Merger.</li>
+                </ul>`,
+            't9': `
+                <h4 class="font-bold text-lg mb-2">Teams</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Definition:</strong> 2+ active founders with equity.</li>
+                    <li><strong>Composition:</strong> Heterogeneity in Skills (Good) + Homogeneity in Values (Good).</li>
+                    <li><strong>Equity Split:</strong> "First Deal". Dynamic splits (Vesting) are better to handle changes.</li>
+                    <li><strong>Conflict:</strong> Task Conflict (Good) vs. Relationship Conflict (Bad).</li>
+                </ul>`,
+            't10': `
+                <h4 class="font-bold text-lg mb-2">Strategy & Growth</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Newness:</strong> Liability (Risk of failure) vs. Asset (Flexibility).</li>
+                    <li><strong>Entry:</strong> First-Mover (Monopoly, high cost) vs. Late-Mover (Lower cost, established market).</li>
+                    <li><strong>Scope:</strong> Narrow (Specialized, market risk) vs. Broad (Competition risk).</li>
+                    <li><strong>Ansoff Matrix:</strong> Penetration, Market Development, Product Development, Diversification.</li>
+                </ul>`,
+            't11': `
+                <h4 class="font-bold text-lg mb-2">Internationalization</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Born Global:</strong> Rapid internationalization from start (e.g., Logitech).</li>
+                    <li><strong>Barriers:</strong> Institutional (Tariffs, Laws) & Market-based (Culture, Distribution).</li>
+                    <li><strong>Modes:</strong> Exporting (Low risk), Licensing (IP risk), Joint Venture (Shared control), Subsidiary (High cost/control).</li>
+                </ul>`,
+            't12': `
+                <h4 class="font-bold text-lg mb-2">Social Entrepreneurship</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Definition:</strong> Innovative activity creating social value (Non-profit to For-profit).</li>
+                    <li><strong>Models:</strong>
+                        <ul class="list-circle pl-5 mt-1">
+                            <li>Social by Selling: Selling to needy (Grameen Bank).</li>
+                            <li>Social by Sourcing: Ethical supply chain (Fairtrade).</li>
+                            <li>Social by Sharing: Donating profits ("Buy one, give one").</li>
+                        </ul>
+                    </li>
+                    <li><strong>Impact (IOOI):</strong> Input -> Output (Activities) -> Outcome (Short-term change) -> Impact (Long-term societal change).</li>
+                </ul>`,
+            't13': `
+                <h4 class="font-bold text-lg mb-2">Sustainable Entrepreneurship</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                    <li><strong>Triple Bottom Line:</strong> Profit, Planet, People.</li>
+                    <li><strong>Market Failure:</strong> Source of opportunity (e.g., reducing externalities like pollution).</li>
+                    <li><strong>History:</strong> Roots in forestry (1713). "Limits to Growth" (1972).</li>
+                </ul>`
+        };
+
+        const guestSummaryData = {
+            'g1': 'Streavent - Felix Schwencke',
+            'g2': 'Medea Biopharma - Giorgi Khubua',
+            'g5': 'Building Atlas - Olga Khroustaleva',
+            'g3': 'TUM Hyperloop - Domenik Radeck',
+            'g6': 'Radical dot - Fabian Knappich',
+            'g7': 'Aenu - Melina Sanchez Montanes',
+            'g8': 'Farminsect - Wolfgang Westermeier',
+            'g9': 'Treesense - Semir Babajic'
+        };
 
         // --- FLASHCARD MANAGER ---
         const FlashcardManager = {
@@ -765,6 +953,66 @@
             Object.values(screens).forEach(s => s.classList.add('hidden'));
             screens[screenName].classList.remove('hidden');
             window.scrollTo(0, 0);
+        }
+
+        function showSummaries() {
+            document.getElementById('menu-screen').classList.add('hidden');
+            document.getElementById('topic-screen').classList.add('hidden');
+            document.getElementById('flashcard-screen').classList.add('hidden');
+            document.getElementById('flashcard-play-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('results-screen').classList.add('hidden');
+
+            const summaryScreen = document.getElementById('summary-screen');
+            summaryScreen.classList.remove('hidden');
+
+            renderSummaries();
+        }
+
+        function renderSummaries() {
+            const lectureList = document.getElementById('lecture-summaries-list');
+            const guestList = document.getElementById('guest-summaries-list');
+
+            // Render Lecture Topics
+            lectureList.innerHTML = topics.map(topic => {
+                const content = summaryData[topic.id];
+                if (!content) return ''; // Skip if no summary
+
+                return `
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleSummary('${topic.id}')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left">
+                        <span class="font-bold text-gray-800">${topic.name}</span>
+                        <svg id="icon-${topic.id}" class="w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="content-${topic.id}" class="hidden p-4 bg-white border-t border-gray-100 text-sm leading-relaxed">
+                        ${content}
+                    </div>
+                </div>`;
+            }).join('');
+
+            // Render Guest Lectures
+            guestList.innerHTML = guestLectures.map(guest => {
+                return `
+                <div class="border border-gray-200 rounded-xl p-4 bg-gray-50 text-gray-500">
+                    <div class="font-bold">${guest.name}</div>
+                    <div class="text-xs mt-1">Summary available in original document.</div>
+                </div>`;
+            }).join('');
+        }
+
+        function toggleSummary(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
         }
 
         function showMenu() {
