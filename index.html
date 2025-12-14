@@ -427,6 +427,10 @@
             { id: 'g2', name: 'Guest: MEDEA (Biotech)' },
             { id: 'g5', name: 'Guest: Building Atlas (Climate Tech)' },
             { id: 'g3', name: 'Guest: TUM Hyperloop (Deep Tech)' },
+            { id: 'g6', name: 'Guest: Radical dot (Circular Economy)' },
+            { id: 'g7', name: 'Guest: Aenu (Impact VC)' },
+            { id: 'g8', name: 'Guest: Farminsect (AgriTech)' },
+            { id: 'g9', name: 'Guest: Treesense (Smart City)' },
             { id: 'g4', name: 'Guest: Personio (Unicorn Case)' }
         ];
 
@@ -584,71 +588,534 @@
 
         const guestSummaryData = {
             'g1': `
-                <h4 class="font-bold text-lg mb-2">Streavent - Felix Schwencke</h4>
-                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                    <li><strong>Biography:</strong> Entrepreneurial since childhood (selling fruits). Studied Mech. Eng. at TUM. Founded "Placetag" (social network, failed) and "Cultivata" (failed). Founded Streavent with co-founder met in China.</li>
-                    <li><strong>Business Model:</strong> SaaS for event management (All-in-one: tickets, app, livestream, check-in). "Pay-per-attendee". Product-led growth (self-onboarding).</li>
-                    <li><strong>History:</strong> Bootstrapped from 0 to €160k revenue in 5 months (2020). Pivoted to digital events during Corona.</li>
-                    <li><strong>Highs:</strong> Winning TIE2 competition, Olaf Scholz used product, first paycheck.</li>
-                    <li><strong>Lows:</strong> Event crashed (6-figure insurance claim), technical failure with big customer (Phillips).</li>
-                    <li><strong>Lessons:</strong> Resilience increases. "Level Up" with each project. Network quality increases. Adapt fast (Covid).</li>
-                </ul>`,
+                <h4 class="font-bold text-lg mb-2">Streavent – Felix Schwencke</h4>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <h5 class="font-bold text-md">Biography:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Entrepreneurial kid and entrepreneurial family: collecting fruits and selling them in front of school, making bracelets and selling them in the neighborhood</li>
+                            <li>Studied mechanical engineering at TUM, got interested in startups</li>
+                            <li>Participating in hackathons and entrepreneurship courses</li>
+                            <li>Joined UnternehmerTUM, scholarships and attended many events</li>
+                            <li>Started “Placetag” social network but struggled with popularity and business model</li>
+                            <li>Did Bachelor thesis at Fahrzeugtechnik Lehrstuhl, built electrical car for Africa, shipped it there, tested it and came back -> published at IAA, became a car company</li>
+                            <li>Startet “Cultivata”, team didn’t match -> failure</li>
+                            <li>Met co-founder in Chinese startup competition, founded Streavent</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Value proposition and business model:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Software as a service company</li>
+                            <li>Attending a revolution in event management</li>
+                            <li>All in one solution for event managers: plan event, sell tickets, create website, build app, livestream, manage check-ins, design event badges, etc.</li>
+                            <li>Using one tool for the entire event lifecycle</li>
+                            <li>Product lead growth company with self-onboarding -> everybody can create an account online and start developing an event</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">History and challenges:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Bootstrapped Streavent in 2020 from 0 to €160.000 revenue in 5 month</li>
+                            <li>Corona crisis -> many events couldn’t take place, created platform for digital events</li>
+                            <li>Product developed since then -> All in one solution for event managers</li>
+                            <li><strong>Highs:</strong>
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Winning TIE2 startup competition in Beijing with Cultivata</li>
+                                    <li>Olaf Scholz used product</li>
+                                    <li>First paycheck from own business</li>
+                                    <li>Winning a huge contract with over €1M reveneue in one year but lost it because of legal issues</li>
+                                </ul>
+                            </li>
+                            <li><strong>Lows:</strong>
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Event crashed, 6 figures insurance claim -> fear of insolvency</li>
+                                    <li>First big customer Phillips did livestreaming event, worked on project for over 1.5 months, live stream didn’t start and co-founder nearly received a heart-attack</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Lessons learned:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>After every low there is a high and the other way around</li>
+                            <li>You get better with each project, the ups are a lot of fun</li>
+                            <li>Network quantity and quality increases, you develop deep professional friendships</li>
+                            <li>You will gain hard and soft skills</li>
+                            <li>Resilience increases until you won’t even react too some problems -> emotional reaction just wastes time an entrepreneur doesn’t has when it comes to problems</li>
+                            <li>An entrepreneur is fighting problems 90% of the time -> fewer unknown situations = less fears</li>
+                            <li>Adapting fast to new conditions can be profitable -> covid</li>
+                            <li>Know how to sell your product and do bigger contracts</li>
+                            <li>You can also start in bad economic times -> if there are problems, people need solutions</li>
+                        </ul>
+                    </div>
+                </div>`,
             'g2': `
-                <h4 class="font-bold text-lg mb-2">Medea Biopharma - Giorgi Khubua</h4>
-                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                    <li><strong>Biography:</strong> TUM SOM student. Founded "SolosMirrors" (sold 2020). Started Medea.</li>
-                    <li><strong>Problem/Solution:</strong> Bacterial resistance (10M deaths by 2050). Solution: New class of antibacterial solutions using phages and automated microbiology.</li>
-                    <li><strong>History:</strong> Founded 2023. Received grants and 2 VC funds. Won international awards. Established security-level 2 lab.</li>
-                    <li><strong>Lessons:</strong> Don't need to be a tech expert to lead a tech startup (need team expertise). Build prototype -> Sell -> Iterate. Many fail due to "features without users".</li>
-                </ul>`,
+                <h4 class="font-bold text-lg mb-2">Medea Biopharma – Giorgi Khubua</h4>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <h5 class="font-bold text-md">Biography:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Wanted to be an entrepreneur in childhood and school but couldn’t decide whether he wanted to do pure technology or pure business -> applied at TUM SOM</li>
+                            <li>Decided to focus on entrepreneurial lectures after first lectures with H. Patzelt</li>
+                            <li>Founded “SolosMirrors” in 6th semester with “thinkmakestart”
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Made life more interesting, made huge learnings</li>
+                                    <li>Sold SolosMirrors in 2020</li>
+                                </ul>
+                            </li>
+                            <li>Started medea</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Value proposition and business model:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Problem: bacterial resistance builds up more and more, bacteria is evolving -> one of the biggest challenges for humanity, estimated 10M deaths by 2050 due to unsustainable anitbiotics</li>
+                            <li>Solution: Developing a new class of antibacterial solutions using phages and automating cutting-edge microbiology</li>
+                            <li>Bacteriophages are effective against bacteria</li>
+                            <li>Starting with products for gut-health and animal-health</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">History and challenges:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Founded 2023, received many non-dilutive grants and 2 VC founds</li>
+                            <li>Won multiple international awards</li>
+                            <li>Established security-level 2 laboratory and won first commercial partners</li>
+                            <li><strong>Highs:</strong>
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Won the biggest digital fitness award ISPO in 2017, the Brand-new digital award in 2017 and other awards</li>
+                                </ul>
+                            </li>
+                            <li><strong>Lows:</strong>
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Pilot project with Solosmirrors and car manufacturer caused short-circuit that called firefighters</li>
+                                    <li>Product market fit gap after 2.5 years of developing, customer couldn’t imagine use case for the product</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Lessons learned:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Entrepreneurs don’t need to be technological experts to develop a technological product but co-founders with expertise and well distributed expertise within the team</li>
+                            <li>Being an entrepreneur can be the right decision if you want to make a change</li>
+                            <li>How to build a startup:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Create a business idea, identify a person with a problem</li>
+                                    <li>Define a value proposition</li>
+                                    <li>Prototype a solution</li>
+                                    <li>Try to sell it to customers or investors</li>
+                                    <li>Outcome 1: nobody wants it -> gain feedback, iterate, try again</li>
+                                    <li>Outcome 2: people buy it -> figure out why and do more of that</li>
+                                </ul>
+                            </li>
+                            <li>Many startups fail because they develop products with many features but no paid users or a marketing plan</li>
+                            <li>Motivations:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Passion for new ideas, joy to create things</li>
+                                    <li>Freedom in time, location, decisions and financials</li>
+                                    <li>The feeling when a plan works out</li>
+                                </ul>
+                            </li>
+                            <li>Learn being comfortable on stage and know your pitches exactly
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Lower your voice to sound more confident and talk slower than usually</li>
+                                </ul>
+                            </li>
+                            <li>Learn how to do more workload and organize yourself better -> You may forget about work-life balance</li>
+                            <li>The odds are against you, 1 in 10 startups works out, after 7 years the probability rises a lot</li>
+                            <li>Don’t overcomplicate things</li>
+                        </ul>
+                    </div>
+                </div>`,
             'g5': `
-                <h4 class="font-bold text-lg mb-2">Building Atlas - Olga Khroustaleva</h4>
-                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                    <li><strong>Biography:</strong> 17 years at Google (Product/UX). Left to fight climate change (buildings = 40% global emissions).</li>
-                    <li><strong>Business Model:</strong> AI platform to help owners of large real estate portfolios retrofit buildings. Models energy use, retrofit costs, and ROI.</li>
-                    <li><strong>Market:</strong> "Retrofitting" existing buildings to be green/compliant. $1T market by 2025.</li>
-                    <li><strong>Challenges:</strong> Public sector funding struggles. Climate protection priority dropped in 2023.</li>
-                    <li><strong>Lessons:</strong> "Expand or die". Conditions change and can destroy business models. Never be the smartest person in the room.</li>
-                </ul>`,
+                <h4 class="font-bold text-lg mb-2">Building Atlas – Olga Khroustaleva</h4>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <h5 class="font-bold text-md">Biography:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Studied at TUM for master’s degree</li>
+                            <li>Worked in product leadership and UX at Google for 17 years</li>
+                            <li>World carbon emission went up 10% in her years at google -> wanted to dedicate the second chapter of her career to climate protection</li>
+                            <li>Hard to counter climate change at Google because its not the core business -> decided to leave comfortable job and go all-in with a startup</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Value proposition and business model:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Building industry is responsible for 40% of global emissions, a “new” Paris is built every month needing much material and machinery</li>
+                            <li>80% of buildings in 2025 already exist</li>
+                            <li>Discovery of business model:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Spending much time interviewing people within the industry</li>
+                                    <li>Talking to industry experts, VCs, potential competitors and potential partners</li>
+                                    <li>Doing market research and getting feedback</li>
+                                    <li>Questions: Is it actually a real problem? Has it already been solved? Is anybody willing to pay for having it solved?</li>
+                                    <li>Technology plays no role at this point of development</li>
+                                </ul>
+                            </li>
+                            <li>In 2023, many began to understand to importance of protecting the value of real estate -> retrofitting, taking buildings that exist and making them more efficient and compliant
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Most buildings in UK would become uninvestible if not retrofitted -> huge market, over 20 million buildings in UK, USA and Europe</li>
+                                    <li>Process of hiring an consultant to asses the buildings situation and possible improvements is the same for 1 building or 1000 buildings -> real estate companies are stuck, large risks or portfolio owners with more than 50 buildings</li>
+                                    <li>Average uplift of 6% in value for retrofitted buildings, $1T market by 2025</li>
+                                    <li>With current speed it would take thousands of years to just assess all buildings in the UK</li>
+                                </ul>
+                            </li>
+                            <li>Building Atlas: An AI platform to help owners of large commercial real estate portfolios retrofit their buildings
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Client only provides Adresses of buildings</li>
+                                    <li>Building Atlas gatheres additional publicy/commercially available data about physics, energy networks, etc.</li>
+                                    <li>Building Atlas models building typology, energy use, commercial potential, retrofit costs, value uplift and ROI using AI</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">History and Challenges:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Developed idea in 2023</li>
+                            <li>Started fundraising in 2024</li>
+                            <li>Started getting positive feedback, people saw the usefulness of the product but not sure about product-market fit
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>But didn’t talked to people that would actually pay</li>
+                                    <li>Value uplift for green buildings only in big cities</li>
+                                    <li>Public sector struggles with funding and relie on government grants and a set of restricting rules</li>
+                                    <li>Climate protection turned out to be come less of an priority since 2023</li>
+                                </ul>
+                            </li>
+                            <li>Positive developments:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>AI models have improved and offer new possibilities</li>
+                                    <li>Speed of innovation in AI is staggering, good position to capitalize it</li>
+                                </ul>
+                            </li>
+                            <li>Future: don’t expand to Germany because there is not transparent and reliable data about buildings -> rather expand to northern Europa: Belgium, Netherlands and Scandinavia</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Lessons learned:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>As a founder you should never be the smartest person in the room or else you hired the wrong people</li>
+                            <li>Expand or die</li>
+                            <li>Conditions change and can destroy your business model</li>
+                        </ul>
+                    </div>
+                </div>`,
             'g3': `
-                <h4 class="font-bold text-lg mb-2">TUM Hyperloop - Domenik Radeck</h4>
-                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                    <li><strong>Strategy:</strong> Technology needs societal adaptation. Focus on Funding, Demand/Route Viability, Economic Viability, and Legitimacy.</li>
-                    <li><strong>History:</strong> Won Elon Musk's competition 4 years in a row. Built 24m real-size segment in Ottobrunn.</li>
-                    <li><strong>Vision:</strong> 600km/h, direct travel. 5-20 passengers per vessel.</li>
-                    <li><strong>Lessons:</strong> Clear goals/deadlines enable fast dev. Keep calm in stress. Push suppliers.</li>
-                </ul>`,
+                <h4 class="font-bold text-lg mb-2">TUM Hyperloop – Domenik Radeck</h4>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <h5 class="font-bold text-md">Biography:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Studied at TUM, finished PhD on Hyperloop</li>
+                            <li>Today Technical Lead at Hyperloop</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Strategy:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Most of work and attention go to the technical side</li>
+                            <li>Technology only becomes real when society decides to adapt it -> strategy becomes important</li>
+                            <li>Strategic viability:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Funding strategy: How to secure financial support for large scale infrastructure?</li>
+                                    <li>Demand & Route Viability: Which segments are worth building, which corridors are most valuable?</li>
+                                    <li>Economic Viability: Cost-benefit? Operational scalability?</li>
+                                    <li>Legitimacy Building: How to gain political, public and industry acceptance?</li>
+                                </ul>
+                            </li>
+                            <li>Financials:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Infrastructure could be paid back within the lifetime of the track just by tickets (todays rails need state subsidies)</li>
+                                    <li>Keeping the cross-section of tunnels as small as possible</li>
+                                    <li>Choosing the right vessel size (5-20 passengers): too big -> probably empty seats because of direct connections, too small -> not profitable enough</li>
+                                    <li>Estimated ticket costs of about 20cts per kilometer</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">History and Challenges:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Elon Musk gave the concept its name in 2013 by publishing a white paper</li>
+                            <li>Musk founded student competition hosted in Los Angeles</li>
+                            <li>TUM Hyperloop club financed by sponsoring won 4 years in a row
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Only goal for TUM: Make the vessel more powerful and lighter</li>
+                                </ul>
+                            </li>
+                            <li>Showed hyperloop to politicians -> Enabled them to build €3M real size segment in Ottobrunn with the only scarce resource being time
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Production now partly outsourced because of size of parts</li>
+                                    <li>Also important: good design to attract and fascinate more people</li>
+                                    <li>Developing a pressure surveillance system to refill the track with air in case of emergency</li>
+                                </ul>
+                            </li>
+                            <li>Next goal: build a 3km track to prove financial profitability</li>
+                            <li>Long term vision: Building bidirectional systems with tubes on ground or in tunnels, reaching speeds of about 600km/h and using direct travelling without stops</li>
+                            <li>Challenges:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Integration of different components into the system</li>
+                                    <li>Certifying safety without existing norms, making own proposals to TÜV</li>
+                                    <li>Estimating the future demand</li>
+                                </ul>
+                            </li>
+                            <li>The Hyperloop team:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Able to choose 4 people per semester between 400 applicants each</li>
+                                    <li>Need a team that gets things done and has no problem with working much</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Lessons learned:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Clear goals and set of rules with strict deadlines enable fast product-development</li>
+                            <li>Things will turn out more complicated than expected, only setting requirements to bare minimum</li>
+                            <li>Trying to keep calm in stressful moments</li>
+                            <li>Ambition and mood of the team is important</li>
+                            <li>You need to push the suppliers</li>
+                        </ul>
+                    </div>
+                </div>`,
             'g6': `
-                <h4 class="font-bold text-lg mb-2">Radical dot - Fabian Knappich</h4>
-                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                    <li><strong>Problem:</strong> >90% of plastic is not recycled. Traditional recycling is not profitable (Green Premium).</li>
-                    <li><strong>Solution:</strong> Turning unrecyclable plastic waste into carbocidic acids (for new plastics, shoes, glues) via chemical recycling. Lower feedstock cost -> higher margin.</li>
-                    <li><strong>History:</strong> Bootstrapped (€5k). Collaboration with TUM Venture Labs. Pre-seed round €2.7M (Jan 2025).</li>
-                    <li><strong>Roadmap:</strong> TRL 5-6 (Prototype) -> TRL 7 (First plant) -> TRL 8 (Licensing).</li>
-                </ul>`,
+                <h4 class="font-bold text-lg mb-2">Radical dot – Fabian Knappich</h4>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <h5 class="font-bold text-md">Biography:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Studied chemistry</li>
+                            <li>Joined SYSTEMIC: sustainability advisory, think tank and implementation company</li>
+                            <li>His topics: energy transition, chemical industry, advising clients for steps on transition to sustainable business model</li>
+                            <li>Analysis on how to move chemical industry towards net zero (currently responsible for 4% of worldwide CO2 emission)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Value proposition and business model:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Over 90% (80% of german) of worldwide plastics is not recycled
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>300-400 million tons per year, 80kg per capita in western societies</li>
+                                    <li>Traditional recycling: mechanical recycling -> sorting, melting, making strings and granulate</li>
+                                    <li>Recycling is not profitable because of sortation and energy costs -> users pay “green premium”</li>
+                                </ul>
+                            </li>
+                            <li>Industry is seeking cost-competitive sustainable chemicals because of politics</li>
+                            <li>Turning hardly-recyclable plastic waste into carbocidic acids
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Using an exothermic oxidation reaction to release heat</li>
+                                    <li>Carbocidic acids can be turned into alcohols and olefins that can be turned back into plastics</li>
+                                    <li>Potential customers: Evonik, UHU, BASF, Helm, Wacker</li>
+                                    <li>Potential downstream products: Apparel, Footwear, Adhesives, Insulation</li>
+                                    <li>Doing what nature does to plastics in thousands of years in hours in reactors</li>
+                                    <li>Scalable because reactor size can easily be increased</li>
+                                </ul>
+                            </li>
+                            <li>Disrupting the $400B market via cost-competitive recycling by having significantly lower feedstock cost (Traditional feedstock for plastics: Fossil fuels, Their feedstock: unrecyclable plastic waste) -> generating higher profit margin</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">History and Challenges:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Bootstrapped, 5000€ for one year</li>
+                            <li>Knocking many doors asking for favors, people provided baseline infrastructure</li>
+                            <li>2022-2023: Ideation Phase</li>
+                            <li>November 2023: Established collaboration with TUM venture labs</li>
+                            <li>March-June 2024: Xpreneurs Incubator</li>
+                            <li>June 2024: Incorporation of Radical Dot GmbH</li>
+                            <li>August 2024: Patent filed to European Patent Office</li>
+                            <li>January 2025: UVC Visionaries Tomorrow pree-seed round, €2.7M</li>
+                            <li>March 2025: Validation project</li>
+                            <li>Go to market strategy: TRL-scale: technology readiness scale from 1 (random idea) to 9 (commercially used)
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Until end of 2027: TRL 5-6, large scale industrial prototype, 10-100kg/day 24/7 -> using grants & private funding</li>
+                                    <li>Until end of 2029: TRL 7, first commercial plant with 0.5-5kt/year</li>
+                                    <li>Future: TRL 8, Owning, Operating and Licensing, 10-50kt/year</li>
+                                </ul>
+                            </li>
+                            <li>Financials:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Targeting >€300M revenues in 10 years</li>
+                                    <li>Using debt financing because they need high CAPEX to scale</li>
+                                    <li>At some point Assets will generate positive IRR and revenues will grow</li>
+                                    <li>Only limit: demand of the output materials is limited because it’s not possible to remake the same products again in every case</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>`,
             'g7': `
-                <h4 class="font-bold text-lg mb-2">Aenu - Melina Sanchez Montanes</h4>
-                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                    <li><strong>Mission:</strong> VC backing commercially superior climate-tech startups (Energy, Decarbonization).</li>
-                    <li><strong>Focus:</strong> Early stage, Europe. €1-5M tickets. 10% ownership target.</li>
-                    <li><strong>Impact Framework:</strong> Integrity (Intentionality, Logic, Additionality) + Potential (Unit Impact, Scale).</li>
-                    <li><strong>Advice:</strong> Raise from Family/Friends first. VCs need a product/team.</li>
-                </ul>`,
+                <h4 class="font-bold text-lg mb-2">Aenu – Melina Sanchez Montanes</h4>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <h5 class="font-bold text-md">Biography:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Started working in diplomacy in Latin America and Spain -> decided she needs something faster and more entrepreneurial</li>
+                            <li>Joined startup in New York, working for hedge funds -> helped rich people get richer, wanted to have better impact</li>
+                            <li>Switched to Impact-VC in Israel with innovative ecosystem</li>
+                            <li>Joined Aenu and became principal investor -> didn’t found own company because impact is also possible by enabling others to succeed, decision depends on skillset</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Value proposition and business model:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Mission: VC for backing commercially superior climate tech startups</li>
+                            <li>Investment themes: Energy Transition, Industrial decarbonization, Systemic Adaptation (all enhanced by AI Technology)</li>
+                            <li>Early Stage invests, 30-35 companies in portfolio
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Geo-Focus: Europa, in particular DACH, Nordics, France and UK</li>
+                                    <li>Focus: high-performance team, strong impact potential, products with USP (unique selling proposition)</li>
+                                    <li>Criteria: the team (especially in early stages), market, market size</li>
+                                    <li>No competition or overlap within the portfolio</li>
+                                    <li>Tickets: €1-5M, 10% average target ownership</li>
+                                    <li>Role: co-leading or leading, seeking board representation</li>
+                                    <li>Financial Target returns: 3-4x TVPI (Total Value to Paid-In Capital), 15-20% Net IRR (Internal Rate of Return)</li>
+                                </ul>
+                            </li>
+                            <li>Aenu also needs to pitch to founders, being attractive with:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Entreprenerial sparring: UVP to have entrepreneurs in VC team -> knowhow, experience</li>
+                                    <li>Impact Know-How and Toolbox: Are able to help on impact analysis</li>
+                                    <li>B2B access for Sales & Bus Dev: Fund can help getting access to hidden champions within the companies bubbles</li>
+                                </ul>
+                            </li>
+                            <li>Impact Targets:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Primary KPI are GHG Emissions saved/removed</li>
+                                    <li>Secondary KPIs: Energy savings, material reduction, assets protected</li>
+                                    <li>Systemic Impact Framework:</li>
+                                    <li>Impact Integrity: Intentionality (clear intention to encounter climate change), Logic (research evidence), Interlock (commercial success and impact success are intertwined), Additionality (best alternative for specific impact problem)</li>
+                                    <li>Impact Potential: Unit Impact (Scientific quantification of Impact per Product unit), Impact scale: Sizeable impact potential based on market forecasts)</li>
+                                </ul>
+                            </li>
+                            <li>VCs don’t want to invest into a team without a product -> as a founder, it is recommended to first raise capital from family and friends</li>
+                            <li>How to identify high scalers: Analysis, Assumptions, looking at the market and competitors</li>
+                            <li>Exit after 10 years with possible extension of 2 years</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">History and Challenges:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Fouders of Aeno are serial entrepreneurs that are continuously building companies and unicorns</li>
+                            <li>Aenu I Fund 2022: 34 companies, 12mt CO2 saved, e.g.
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Trawa: Helps industrial clients to flexibles their distributed energy resources, taking track of optimizing process</li>
+                                    <li>Alcemy: Works with cement manufacturers to reduce emissions</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>`,
             'g8': `
-                <h4 class="font-bold text-lg mb-2">Farminsect - Wolfgang Westermeier</h4>
-                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                    <li><strong>Business Model:</strong> Decentralized insect farming to replace soy/fish meal in animal feed. Sustainable protein from regional food waste.</li>
-                    <li><strong>Revenue:</strong> Selling Production Platform (Hardware), Selling Larvae (Genetics), Buyback/Resale of insects.</li>
-                    <li><strong>Challenges:</strong> Building supply chain from scratch. Market immaturity. Capital intensive.</li>
-                    <li><strong>Lessons:</strong> Focus on cash efficiency. Build leadership team. Deep partnerships.</li>
-                </ul>`,
+                <h4 class="font-bold text-lg mb-2">Farminsect – Wolfgang Westermeier</h4>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <h5 class="font-bold text-md">Biography:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Studied Biology and Agricultural science at TUM</li>
+                            <li>Did the “Manage and more” scholarship of UnternehmerTUM</li>
+                            <li>Founded a startup for at-home beer brewing sets while in Bachelor Thesis</li>
+                            <li>Founded “pure flavor” startup that produces flavor-ingredients for food production</li>
+                            <li>Both companies were successful but were missing a sustainability factor</li>
+                            <li>EU allowed insects for food production -> saw opportunity and founded Farminsect</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Business model:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Today, mostly imported soy and fish meal is used as animal-feed</li>
+                            <li>75% of crop biomass is wasted, 20% of EU food production is wasted</li>
+                            <li>The area that feeds one person will decrease because of overpopulation</li>
+                            <li>The need for meat will increase because of increasing wealth in development countries</li>
+                            <li>Insects can be grown regionally and used as a sustainable protein source</li>
+                            <li>Insects be fed by todays wasted nutrients and close the protein gap</li>
+                            <li>Insects get cooled down until zero nerval activity, then get killed</li>
+                            <li>Using modular, decentralized farms and having much patent protected equipment</li>
+                            <li>Building partnerships with existing equipment suppliers</li>
+                            <li>Building a scalable, low capex platform</li>
+                            <li>>€20B market size for production platform, >€10B market size for partly replacing traditional feed</li>
+                            <li>Three revenue streams:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Selling the Production platform for local production at the farms (1x sale)</li>
+                                    <li>Selling Baby larvae with genetics suited for different food-waste and transportation (ARR with 5-year contract)</li>
+                                    <li>Processing platform for buyback and resale of the fattened insects as meal, protein or fat (Mostly ARR with 1–5-year contracts)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">History and challenges:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Challenge at start: build up whole network and supply chain, there were no processing partners for live larvae</li>
+                            <li>Challenges along the way:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Market immaturity & volatility: no established supply/demand equilibrium</li>
+                                    <li>Limited Customer readiness: farmers require proof of stability and long-term guarantees and don’t want to adapt first-version products at scale</li>
+                                    <li>Capital-Intensive Scale-Up: Hardware, biotech and food are costly and have long development cycles, burn-rate risk when market prices fall</li>
+                                    <li>Sector-Wide Growing Pains: Declining margins across the industry, regulatory uncertainty</li>
+                                </ul>
+                            </li>
+                            <li>Steps for developing product:
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Step 1: Understanding requirements of insect’s biology and customer needs without available data about value chain or production costs -> sourcing larvae and setting up rudimentary prototype -> Decision if it is worthwhile to pursue business idea</li>
+                                    <li>Step 2: Develop business model, find investors and build first real prototype -> Biology was too complicated, needed to make the business model less complex to attract investors</li>
+                                    <li>Step 3: Converted pork barn into first insect farm, proofing the concept -> receiving public grant, building first facility in TUM venture lab</li>
+                                    <li>Step 4: Selling production platforms, facing automated gigafactories as main competitors with lower capex, lower operating costs per ton of larvae, lower investment size and specialization along the value chain -> most of the gigafactories failed and went bankrupt</li>
+                                </ul>
+                            </li>
+                            <li>Today: 21 employees with many activities outsourced</li>
+                            <li>Future: Expanding in clusters, being profitable within 1 year, maybe using larvae for human food industry as efficient and sustainable protein source but still regulatory barriers</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">Lessons learned:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Manage Risk by staying flexible</li>
+                            <li>Focus on cash efficiency rather than only growth</li>
+                            <li>Build a Leadership Team for the long game</li>
+                            <li>Deep Partnerships beat opportunistic customers</li>
+                            <li>Expect Market Cycles & Industry shakeouts</li>
+                            <li>Emotional Resilience & Founder Mindset</li>
+                        </ul>
+                    </div>
+                </div>`,
             'g9': `
-                <h4 class="font-bold text-lg mb-2">Treesense - Semir Babajic</h4>
-                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                    <li><strong>Problem:</strong> Urban trees are expensive to maintain (€5000) and need precise watering.</li>
-                    <li><strong>Solution:</strong> Sensors measuring electrical resistance in xylem (real-time health data). Saves 93% watering costs.</li>
-                    <li><strong>History:</strong> Bootstrapped. Sold pilot projects fast to prove value. Successful in Munich.</li>
-                </ul>`
+                <h4 class="font-bold text-lg mb-2">Treesense – Semir Babajic</h4>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <h5 class="font-bold text-md">Value proposition and business model:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Rule in big cities: whenever a tree is cut, it needs to be replaced</li>
+                            <li>Planting an urban tree costs up to 5000€ (mostly maintenance)</li>
+                            <li>Roots are weak, trees need to be watered with 100L per week -> workers have to visit every tree</li>
+                            <li>Climate change increases the requirements for trees and replacements</li>
+                            <li>Tree sensors for green and smart cities for needs-based tree care
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Metal screws measure electrical resistance in xylem</li>
+                                    <li>Using realtime data about irrigation, soil preparation, crown pruning, watering, etc.</li>
+                                    <li>Creating cost efficiency, sustainability and simplicity</li>
+                                </ul>
+                            </li>
+                            <li>Customers: mostly cities and communities, researchers</li>
+                            <li>Onboarding process: Which network, software, etc. needed?</li>
+                            <li>Selling XS, M and L package of sensors -> L package only to make M more attractive</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-md">History and Challenges:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Founded in 2021</li>
+                            <li>Bootstrapped startup -> needed to sell their high-tech product fast</li>
+                            <li>Started selling pilot projects and taking accountability and responsibility</li>
+                            <li>After pilot project: evaluation, ask the customer whether they want to keep the product</li>
+                            <li>Successful in Munich, saved 93% of watering and much money</li>
+                            <li>Many sensors in other German cities</li>
+                        </ul>
+                    </div>
+                </div>`
         };
 
         // --- FLASHCARD MANAGER ---
