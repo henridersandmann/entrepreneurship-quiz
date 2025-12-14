@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="EntrepPrep">
+    <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+    <title>Entrepreneurship Master Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-gray-800">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center cursor-pointer" onclick="showMenu()">
+                    <span class="text-xl font-extrabold text-blue-600 tracking-tight">Entrep<span
+                            class="text-gray-900">Prep</span></span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="showMenu()"
+                        class="text-gray-500 hover:text-gray-900 font-medium text-sm">Menu</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-4 py-8">
+
+        <!-- 1. MAIN MENU -->
+        <div id="menu-screen" class="fade-in space-y-8">
+            <div class="text-center py-10">
+                <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Master Entrepreneurship</h1>
+                <p class="text-lg text-gray-600">Choose your learning mode</p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2">
+                <!-- Mode: Learn by Topic -->
+                <button onclick="showTopics()"
+                    class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 text-left">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-24 h-24 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Learn
+                        by Topic</h3>
+                    <p class="text-gray-500">Master the 13 core topics and 8 guest lectures one by one.</p>
+                </button>
+
+                <!-- Mode: Random Questions -->
+                <button onclick="startRandomQuiz()"
+                    class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 text-left">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-24 h-24 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                        Random Quiz</h3>
+                    <p class="text-gray-500">Test your knowledge with a shuffled set of questions.</p>
+                </button>
+
+                <!-- Mode: Summaries -->
+                <button
+                    class="group relative bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-all duration-300 text-left opacity-60 cursor-not-allowed">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <svg class="w-24 h-24 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Summaries</h3>
+                    <p class="text-gray-500">Quick review sheets for each topic. (Coming Soon)</p>
+                </button>
+
+                <!-- Mode: Flashcards -->
+                <button onclick="showFlashcards()"
+                    class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 text-left">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-24 h-24 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z" />
+                            <path d="M7 7h10v2H7zm0 4h10v2H7zm0 4h7v2H7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-yellow-500 transition-colors">
+                        Flashcards</h3>
+                    <p class="text-gray-500">Review questions based on your mastery (Right/Wrong/New).</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- 2. TOPIC SELECTION SCREEN -->
+        <div id="topic-screen" class="hidden fade-in">
+            <button onclick="showMenu()"
+                class="mb-6 flex items-center text-gray-500 hover:text-gray-900 transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Menu
+            </button>
+
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Core Topics</h2>
+            <div id="topics-list" class="grid gap-4 md:grid-cols-2 mb-10">
+                <!-- Topics injected here -->
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Guest Lectures</h2>
+            <div id="guests-list" class="grid gap-4 md:grid-cols-2">
+                <!-- Guests injected here -->
+            </div>
+        </div>
+
+        <!-- 2.5 FLASHCARD SCREEN -->
+        <div id="flashcard-screen" class="hidden fade-in">
+            <button onclick="showMenu()"
+                class="mb-6 flex items-center text-gray-500 hover:text-gray-900 transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Menu
+            </button>
+
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Flashcards</h2>
+            <p class="text-gray-600 mb-8">Review questions based on your mastery.</p>
+
+            <div class="grid gap-6 md:grid-cols-3">
+                <!-- Wrong Deck -->
+                <button onclick="startFlashcardSession('wrong')"
+                    class="bg-red-50 p-6 rounded-2xl border border-red-100 hover:shadow-lg hover:border-red-200 transition-all text-left group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-red-100 rounded-xl text-red-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </div>
+                        <span id="fc-count-wrong" class="text-2xl font-bold text-red-600">0</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Review Wrong</h3>
+                    <p class="text-sm text-gray-500">Questions you missed.</p>
+                </button>
+
+                <!-- New Deck -->
+                <button onclick="startFlashcardSession('new')"
+                    class="bg-gray-50 p-6 rounded-2xl border border-gray-200 hover:shadow-lg hover:border-gray-300 transition-all text-left group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-gray-200 rounded-xl text-gray-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                        </div>
+                        <span id="fc-count-new" class="text-2xl font-bold text-gray-600">0</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Play New</h3>
+                    <p class="text-sm text-gray-500">Questions not yet seen.</p>
+                </button>
+
+                <!-- Correct Deck -->
+                <button onclick="startFlashcardSession('correct')"
+                    class="bg-green-50 p-6 rounded-2xl border border-green-100 hover:shadow-lg hover:border-green-200 transition-all text-left group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-green-100 rounded-xl text-green-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <span id="fc-count-correct" class="text-2xl font-bold text-green-600">0</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Review Correct</h3>
+                    <p class="text-sm text-gray-500">Reinforce what you know.</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- 2.6 FLASHCARD PLAY SCREEN -->
+        <div id="flashcard-play-screen" class="hidden fade-in h-screen flex flex-col">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-6">
+                <button onclick="showFlashcards()" class="text-gray-500 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+                <div class="text-sm font-medium text-gray-500">
+                    <span id="fc-progress">1 / 20</span>
+                </div>
+                <div class="w-6"></div> <!-- Spacer -->
+            </div>
+
+            <!-- Card Container -->
+            <div class="flex-1 flex flex-col justify-center items-center pb-20 px-4">
+
+                <!-- The Card -->
+                <div id="flashcard-card" onclick="flipCard()"
+                    class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-8 md:p-12 min-h-[400px] flex flex-col justify-center items-center text-center cursor-pointer transition-all duration-500 hover:shadow-xl border border-gray-100 relative overflow-hidden group">
+
+                    <!-- Hint/Tap to flip -->
+                    <div class="absolute top-4 right-4 text-gray-300 group-hover:text-gray-400 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                            </path>
+                        </svg>
+                    </div>
+
+                    <!-- Front Content -->
+                    <div id="fc-front" class="transition-opacity duration-300">
+                        <h3 id="fc-question" class="text-2xl md:text-3xl font-bold text-gray-800 leading-relaxed">
+                            Question goes here?
+                        </h3>
+                    </div>
+
+                    <!-- Back Content -->
+                    <div id="fc-back" class="hidden opacity-0 transition-opacity duration-300 w-full">
+                        <div class="mb-6">
+                            <span
+                                class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-bold mb-2">Correct
+                                Answer</span>
+                            <p id="fc-answer" class="text-xl md:text-2xl font-bold text-gray-900">
+                                Option B
+                            </p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-xl text-left">
+                            <p id="fc-explanation" class="text-gray-700 leading-relaxed">
+                                Explanation goes here.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Controls (Hidden initially) -->
+                <div id="fc-controls"
+                    class="mt-10 flex gap-4 opacity-0 pointer-events-none transition-opacity duration-300">
+                    <button onclick="rateCard(false); event.stopPropagation();"
+                        class="px-8 py-4 bg-red-100 text-red-600 rounded-xl font-bold hover:bg-red-200 transition-colors flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        I didn't know
+                    </button>
+                    <button onclick="rateCard(true); event.stopPropagation();"
+                        class="px-8 py-4 bg-green-100 text-green-600 rounded-xl font-bold hover:bg-green-200 transition-colors flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        I knew it!
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 3. QUIZ SCREEN -->
+        <div id="quiz-screen" class="hidden fade-in">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-8">
+                <button onclick="confirmExit()" class="text-gray-400 hover:text-red-500 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="flex-1 mx-8">
+                    <div class="flex justify-between text-xs font-semibold text-gray-500 mb-2">
+                        <span id="quiz-mode-label">Topic Mode</span>
+                        <span id="progress-text">1/10</span>
+                    </div>
+                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-blue-600 transition-all duration-500 ease-out"
+                            style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="w-6"></div> <!-- Spacer -->
+            </div>
+
+            <!-- Question Card -->
+            <div class="bg-white rounded-3xl shadow-lg p-8 md:p-10 border border-gray-100">
+                <h2 id="question-text" class="text-xl md:text-2xl font-bold text-gray-900 mb-8 leading-relaxed"></h2>
+                <!-- Options -->
+                <div id="options-container" class="space-y-3">
+                    <!-- Buttons injected here -->
+                </div>
+
+                <!-- Feedback Section -->
+                <div id="feedback-container" class="hidden mt-6 p-4 rounded-xl border animate-fade-in">
+                    <p id="feedback-text" class="text-sm"></p>
+                </div>
+
+                <!-- Next Button -->
+                <div class="mt-6 flex justify-end">
+                    <button id="next-btn" onclick="nextQuestion()"
+                        class="hidden px-6 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Next Question →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. RESULTS SCREEN -->
+        <div id="results-screen" class="hidden fade-in text-center">
+            <div class="bg-white rounded-3xl shadow-xl p-10 max-w-2xl mx-auto">
+                <div class="mb-6 inline-block p-4 rounded-full bg-blue-50 text-blue-600">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Quiz Complete!</h2>
+                <div class="text-6xl font-extrabold text-blue-600 mb-4 tracking-tight" id="score-percentage">80%</div>
+                <p class="text-gray-500 mb-8" id="score-text">You answered 8 out of 10 correctly.</p>
+
+                <div class="flex justify-center space-x-4 mb-10">
+                    <button onclick="showMenu()"
+                        class="px-6 py-3 rounded-xl font-semibold text-gray-600 hover:bg-gray-100 transition-colors">Menu</button>
+                    <button onclick="retryQuiz()"
+                        class="px-6 py-3 rounded-xl font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all">Try
+                        Again</button>
+                </div>
+
+                <div class="text-left border-t border-gray-100 pt-8">
+                    <h3 class="text-lg font-bold text-gray-900 mb-6">Detailed Review</h3>
+                    <div id="review-container" class="space-y-6">
+                        <!-- Review items -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- DATA STRUCTURES ---
+
+        const topics = [
+            { id: 't1', name: 'Introduction & Definitions' },
+            { id: 't2', name: 'Entrepreneurial Personality' },
+            { id: 't3', name: 'Opportunity Identification' },
+            { id: 't4', name: 'Decision Making (Effectuation)' },
+            { id: 't5', name: 'Design Thinking' },
+            { id: 't6', name: 'Prototyping' },
+            { id: 't7', name: 'Business Modeling' },
+            { id: 't8', name: 'Entrepreneurial Finance' },
+            { id: 't9', name: 'Teams' },
+            { id: 't10', name: 'Strategy & Growth' },
+            { id: 't11', name: 'Internationalization' },
+            { id: 't12', name: 'Social Entrepreneurship' },
+            { id: 't13', name: 'Sustainable Entrepreneurship' }
+        ];
+
+        const guestLectures = [
+            { id: 'g1', name: 'Guest: Streavent (Event Tech)' },
+            { id: 'g2', name: 'Guest: MEDEA (Biotech)' },
+            { id: 'g5', name: 'Guest: Building Atlas (Climate Tech)' },
+            { id: 'g3', name: 'Guest: TUM Hyperloop (Deep Tech)' },
+            { id: 'g4', name: 'Guest: Personio (Unicorn Case)' }
+        ];
+
+        // Mapped Questions (Added topicId)
+        // Initialize Question IDs
+
+
+        // --- FLASHCARD MANAGER ---
+        const FlashcardManager = {
+            getData() {
+                return JSON.parse(localStorage.getItem('flashcard_data')) || {};
+            },
+            saveData(data) {
+                localStorage.setItem('flashcard_data', JSON.stringify(data));
+            },
+            getStatus(id) {
+                const data = this.getData();
+                return data[id] || 'new';
+            },
+            updateStatus(id, isCorrect) {
+                const data = this.getData();
+                // If correct, mark correct. If wrong, mark wrong.
+                // Simple logic: Last attempt dictates status.
+                data[id] = isCorrect ? 'correct' : 'wrong';
+                this.saveData(data);
+            },
+            getCounts() {
+                const data = this.getData();
+                let counts = { new: 0, correct: 0, wrong: 0 };
+
+                // Count known statuses
+                Object.values(data).forEach(status => {
+                    if (counts[status] !== undefined) counts[status]++;
+                });
+
+                // Calculate 'new'
+                // Total questions - (correct + wrong)
+                // Note: This assumes all questions in allQuestions are tracked.
+                // If we add questions later, they default to new.
+                const trackedCount = Object.keys(data).length;
+                counts.new = allQuestions.length - trackedCount;
+
+                // Safety check if questions were removed
+                if (counts.new < 0) counts.new = 0;
+
+                return counts;
+            },
+            getQuestionsByStatus(status) {
+                const data = this.getData();
+                if (status === 'new') {
+                    return allQuestions.filter(q => !data[q.id]);
+                }
+                return allQuestions.filter(q => data[q.id] === status);
+            }
+        };
+
+        // --- APP STATE ---
+        const allQuestions = [
+            { topicId: 't1', q: "1. How is entrepreneurship defined by Shane and Venkataraman (2000)?", opt: ["A. The ability to create a business plan.", "B. The discovery, evaluation, and exploitation of opportunities.", "C. The management of small businesses.", "D. The process of raising venture capital."], ans: "B", exp: "Entrepreneurship is defined as the discovery, evaluation, and exploitation of opportunities." },
+            { topicId: 't1', q: "2. What is the relationship between a country's 'Entry Rate Density' and its 'GDP per Capita'?", opt: ["A. Strong negative correlation", "B. No correlation", "C. Generally positive correlation", "D. Exponential negative correlation"], ans: "C", exp: "Higher entrepreneurial activity (entry density) is generally associated with higher GDP." },
+            { topicId: 't1', q: "3. Which of the following is NOT a type of entrepreneurship mentioned in the lectures?", opt: ["A. Social Entrepreneurship", "B. Necessity-driven Entrepreneurship", "C. Passive Income Entrepreneurship", "D. Opportunity-driven Entrepreneurship"], ans: "C", exp: "'Passive Income' is not a formal category in this context." },
+
+            // T1 (Advanced Set)
+            { topicId: 't1', q: "You are analyzing a country's entrepreneurial activity. You notice a high number of individuals starting businesses not because they want to, but because they have no other employment options. In the GEM framework, these are classified as:", opt: ["A. Opportunity Entrepreneurs.", "B. Necessity Entrepreneurs.", "C. Social Entrepreneurs.", "D. Effectual Entrepreneurs."], ans: "B", exp: "Necessity Entrepreneurs. (Source: GEM Reports)" },
+            { topicId: 't1', q: "An entrepreneur notices that coffee beans are cheaper in Vietnam than in Germany. She buys them in Vietnam and sells them in Germany for a profit, without changing the beans. Which economic theory of entrepreneurship best describes this action?", opt: ["A. Schumpeter's Creative Destruction (New Combinations).", "B. Kirzner's Entrepreneurial Alertness (Arbitrage).", "C. Sarasvathy's Effectuation.", "D. Knight's Risk Management."], ans: "B", exp: "Kirzner's Entrepreneurial Alertness (Arbitrage). (Source: Foundations)" },
+            { topicId: 't1', q: "In the Effectuation framework (Sarasvathy), the 'Pilot-in-the-Plane' principle contrasts with the 'Managerial' worldview primarily by asserting that:", opt: ["A. The future can be predicted through better data.", "B. The future cannot be predicted, but it can be controlled/created through action.", "C. Entrepreneurs should take higher risks than managers.", "D. Planning is the most important stage of venture creation."], ans: "B", exp: "The future cannot be predicted, but it can be controlled/created through action. (Source: Foundations)" },
+            { topicId: 't1', q: "Which of the following scenarios best illustrates the 'Crazy Quilt' principle of Effectuation?", opt: ["A. A founder performs a SWOT analysis to find the perfect market gap.", "B. A founder convinces a supplier to invest raw materials in exchange for equity, effectively reshaping the venture's goals.", "C. A founder bets their life savings because they believe the return will be high.", "D. A detailed 5-year roadmap."], ans: "B", exp: "A founder convinces a supplier to invest raw materials in exchange for equity. (Source: Foundations)" },
+            { topicId: 't1', q: "What is the 'Liability of Newness' (Stinchcombe)?", opt: ["A. The risk that a new product will be copied.", "B. The higher risk of failure for young organizations due to a lack of resources, established routines, and legitimacy.", "C. The legal cost of registering a new company.", "D. The tendency of new founders to overwork."], ans: "B", exp: "The higher risk of failure for young organizations due to a lack of resources, established routines, and legitimacy. (Source: Foundations)" },
+            { topicId: 't1', q: "In the 'Input-Mediator-Outcome' (IMO) model of team performance, 'Trust' and 'Cohesion' are classified as:", opt: ["A. Inputs.", "B. Outcomes.", "C. Emergent States (psychological states that develop during teamwork).", "D. Processes."], ans: "C", exp: "Emergent States. (Source: Foundations)" },
+            { topicId: 't1', q: "Consider the 'Corridor Principle'. How does it explain why serial entrepreneurs often find better opportunities than first-time founders?", opt: ["A. They have more money.", "B. Being 'inside' a venture exposes them to unique information and problems (windows of opportunity) that are invisible from the outside.", "C. They are naturally smarter.", "D. They take fewer risks."], ans: "B", exp: "Being 'inside' a venture exposes them to unique information and problems. (Source: Foundations)" },
+
+            // T2 (Renewed Questions)
+            { topicId: 't2', q: "You are advising a founding team that is constantly fighting. They all score extremely high on 'Conscientiousness' and 'Openness', but very low on 'Agreeableness'. Based on the lecture findings, why is this a predicted risk?", opt: ["A. Low Agreeableness is correlated with low financial performance in all startups.", "B. High Conscientiousness leads to excessive risk-taking.", "C. While typical entrepreneurs are low in Agreeableness, this trait is actually helpful and necessary for collaboration within teams.", "D. Openness is the only trait that matters for team dynamics."], ans: "C", exp: "While typical entrepreneurs are low in Agreeableness, this trait is actually helpful and necessary for collaboration within teams. (Source: Slide 15)" },
+            { topicId: 't2', q: "An entrepreneur walks into an investor meeting feeling incredibly happy and optimistic (High Positive Affect). According to Baron (2008), what is the specific cognitive 'danger' they face during this meeting?", opt: ["A. They will suffer from memory loss regarding their financial data.", "B. They may rely too heavily on heuristics and overlook critical details due to 'global perception'.", "C. They will appear incompetent to the investors.", "D. They will become too risk-averse."], ans: "B", exp: "They may rely too heavily on heuristics and overlook critical details due to 'global perception'. (Source: Slide 18)" },
+            { topicId: 't2', q: "Two founders are arguing. Founder A says, 'I need to control every decision to feel successful.' Founder B says, 'I just want to hit our revenue targets, I don't care who decides.' Which motivational profiles do they fit?", opt: ["A. Founder A has high Need for Achievement; Founder B has high Need for Autonomy.", "B. Both have high Need for Power.", "C. Founder A has high Need for Autonomy; Founder B has high Need for Achievement.", "D. Both have high Risk Tolerance."], ans: "C", exp: "Founder A has high Need for Autonomy; Founder B has high Need for Achievement. (Source: Slide 16)" },
+            { topicId: 't2', q: "Look at the meta-analytic data for 'Extraversion'. If you are trying to predict whether someone will *start* a business (Business Creation), how useful is this trait?", opt: ["A. It is the single strongest predictor.", "B. It is not statistically significant.", "C. It is negatively correlated (Introverts start more businesses).", "D. It is highly significant, but only for tech companies."], ans: "B", exp: "It is not statistically significant. (Source: Slide 14)" },
+            { topicId: 't2', q: "A VC gives you feedback: 'I love your passion, but I'm not investing.' Based on the lecture's section on stakeholder effects, what is the most likely reason?", opt: ["A. Investors view passion as a sign of instability.", "B. Investors value signals of preparedness and competence much higher than passion.", "C. The investor did not share the same 'object' of passion.", "D. Passion is negatively correlated with ROI."], ans: "B", exp: "Investors value signals of preparedness and competence much higher than passion. (Source: Slide 20)" },
+            { topicId: 't2', q: "Which of the Big Five traits shows the most consistent 'positive' effect, correlating significantly with *both* business creation and business performance?", opt: ["A. Conscientiousness", "B. Openness to Experience", "C. Emotional Stability", "D. Extraversion"], ans: "A", exp: "Conscientiousness. (Source: Slide 14)" },
+            { topicId: 't2', q: "You are struggling to remember the details of a stressful crisis that happened in your startup last year. Today, you are in a great mood. Why is it hard to recall those negative details?", opt: ["A. Mood-Dependent Retrieval: Recall is facilitated when current mood matches the mood at the time of encoding.", "B. Positive affect shrinks working memory capacity.", "C. Entrepreneurs generally have poor episodic memory.", "D. High stress permanently deletes memories."], ans: "A", exp: "Mood-Dependent Retrieval: Recall is facilitated when current mood matches the mood at the time of encoding. (Source: Slide 18)" },
+            { topicId: 't2', q: "In a comparison between managers and entrepreneurs, which personality trait gap is most distinct (where entrepreneurs score lower)?", opt: ["A. Openness", "B. Conscientiousness", "C. Neuroticism", "D. Extraversion"], ans: "C", exp: "Neuroticism. (Source: Slide 14)" },
+            { topicId: 't2', q: "An entrepreneur is working 80 hours a week. They say they 'love it,' but they also feel unable to stop thinking about work during family time, leading to conflict at home. This is an example of:", opt: ["A. Harmonious Passion", "B. Need for Achievement", "C. Obsessive Passion", "D. High Conscientiousness"], ans: "C", exp: "Obsessive Passion. (Source: Slide 20)" },
+            { topicId: 't2', q: "Why is the 'Need for Autonomy' often considered a double-edged sword for venture growth?", opt: ["A. It isn't; it is always positive.", "B. It correlates with business creation, but has a weaker correlation with performance ($r=.16$) compared to Achievement.", "C. It makes entrepreneurs too lazy to work hard.", "D. It prevents entrepreneurs from raising capital."], ans: "B", exp: "It correlates with business creation, but has a weaker correlation with performance compared to Achievement. (Source: Slide 16)" },
+
+            // T2 (Advanced Set)
+            { topicId: 't2', q: "A founder is fiercely dedicated to their product, working 90 hours a week. However, their employees feel alienated because the founder refuses to listen to their suggestions, viewing any critique as a personal attack. This is a consequence of:", opt: ["A. Harmonious Passion.", "B. Obsessive Passion, which can limit feedback acceptance.", "C. High Conscientiousness.", "D. Need for Autonomy."], ans: "B", exp: "Obsessive Passion, which can limit feedback acceptance. (Source: Slide 20)" },
+            { topicId: 't2', q: "According to the meta-analysis by Zhao & Seibert (2006), which 'Big Five' trait shows the strongest NEGATIVE correlation with entrepreneurial intention/creation?", opt: ["A. Neuroticism.", "B. Extraversion.", "C. Openness to Experience.", "D. Conscientiousness."], ans: "A", exp: "Neuroticism. (Source: Slide 14)" },
+            { topicId: 't2', q: "Regarding 'Cognitive Adaptability': When an entrepreneur is in a positive mood (Positive Affect), research by Baron (2008) suggests they are MORE likely to:", opt: ["A. Engage in detailed analysis.", "B. Spot the 'big picture' (Global Perception) but also rely on heuristics.", "C. Become risk-averse.", "D. Experience memory failure."], ans: "B", exp: "Spot the 'big picture' (Global Perception) but also rely on heuristics. (Source: Slide 18)" },
+            { topicId: 't2', q: "A team of founders scores very high on 'Openness' and 'Conscientiousness' but very low on 'Agreeableness'. Why might this be a liability?", opt: ["A. Low Agreeableness hampers conflict resolution and collaboration.", "B. High Conscientiousness leads to analysis paralysis.", "C. High Openness causes pivoting too frequently.", "D. No liability."], ans: "A", exp: "Low Agreeableness hampers conflict resolution and collaboration. (Source: Slide 15)" },
+            { topicId: 't2', q: "When comparing 'Need for Achievement' vs. 'Need for Autonomy', the meta-analysis by Rauch & Frese (2007) found that:", opt: ["A. Autonomy is a stronger predictor.", "B. Need for Achievement is a stronger predictor of business performance ($r=.30$) than Autonomy ($r=.16$).", "C. Both are equal.", "D. Neither correlates."], ans: "B", exp: "Need for Achievement is a stronger predictor of business performance ($r=.30$) than Autonomy. (Source: Slide 16)" },
+            { topicId: 't2', q: "According to the lecture, personality traits are considered 'distal' (distant) drivers of behavior. What are the 'proximal' (closer) drivers that mediate personality into action?", opt: ["A. Genetic dispositions.", "B. Goals and Action Strategies.", "C. Market conditions.", "D. Childhood experiences."], ans: "B", exp: "Goals and Action Strategies. (Source: Psychology of Entrepreneurship)" },
+            { topicId: 't2', q: "Why is 'Agreeableness' often found to be lower in entrepreneurs compared to managers ($r_c = -.08$)?", opt: ["A. Entrepreneurs are mean.", "B. Entrepreneurs often need to be competitive, challenge the status quo, and negotiate hard.", "C. Correlated with intelligence.", "D. Myth."], ans: "B", exp: "Entrepreneurs often need to be competitive, challenge the status quo, and negotiate hard. (Source: Slide 14)" },
+
+            // T2 (Retained Unique Questions)
+            { topicId: 't2', q: "'The entrepreneur is the firm and the firm is the entrepreneur.' This quote by Strauss (1944) emphasizes:", opt: ["A. The legal liability of sole proprietorships.", "B. The need to understand psychology to understand entrepreneurship at the firm foundation stage.", "C. The financial risk taken by founders.", "D. The marketing strategy of personal branding."], ans: "B", exp: "The need to understand psychology to understand entrepreneurship at the firm foundation stage. (Source: Slide 5)" },
+            { topicId: 't2', q: "While personality traits are stable dispositions, they are influenced by:", opt: ["A. Only genetics.", "B. Only environmental factors.", "C. Both genetics and environmental factors (mainly childhood experiences).", "D. Professional training in adulthood only."], ans: "C", exp: "Both genetics and environmental factors (mainly childhood experiences). (Source: Slide 4)" },
+
+
+            // T3: Opportunity Identification (13 Questions)
+            { topicId: 't3', q: "Shane and Venkataraman (2000) define an entrepreneurial opportunity specifically as a situation where:", opt: ["A. A new technology is invented.", "B. A market need is unmet.", "C. New goods/services can be introduced and sold at greater than their cost of production.", "D. A product creates value for the buyer."], ans: "C", exp: "New goods/services can be introduced and sold at greater than their cost of production. (Source: Slide 5)" },
+            { topicId: 't3', q: "You are using the 'Checklist Method' (SCAMPER) to generate ideas. You ask: 'Can I change the order of operations?' or 'Can I turn it upside down?' Which specific operator are you applying?", opt: ["A. Modify", "B. Substitute", "C. Rearrange / Reverse", "D. Magnify / Minify"], ans: "C", exp: "Rearrange / Reverse. (Source: Slide 13)" },
+            { topicId: 't3', q: "According to Davidsson & Honig (2003), which social capital factor increases the odds of starting a business the MOST (by a factor of 2.0)?", opt: ["A. Having parents in business.", "B. Having friends in business.", "C. Being married.", "D. Encouragement by friends."], ans: "B", exp: "Having friends in business. (Source: Slide 23)" },
+            { topicId: 't3', q: "The 'Sony 18-hour CD' example was used in the lecture to demonstrate what counter-intuitive concept regarding knowledge?", opt: ["A. Prior knowledge always accelerates innovation.", "B. Knowledge can be restricting; relying on the 'LP record' mental model blinded them to the CD's true potential.", "C. Technical knowledge is less important than marketing knowledge.", "D. Creativity is impossible without deep technical knowledge."], ans: "B", exp: "Knowledge can be restricting; relying on the 'LP record' mental model blinded them to the CD's true potential. (Source: Slide 19)" },
+            { topicId: 't3', q: "The creativity technique 'Conceptual Combination' involves combining unrelated concepts (e.g., 'Healthy Fast Food'). What is the goal of this technique?", opt: ["A. To simplify a complex product.", "B. To address different needs of different customer groups simultaneously.", "C. To copy a competitor's feature set.", "D. To reduce production costs."], ans: "B", exp: "To address different needs of different customer groups simultaneously. (Source: Slide 11)" },
+            { topicId: 't3', q: "According to the 'Knowledge Corridor' concept (Shane 2000), why did people with different backgrounds (Design vs. Pharma) see different opportunities in 3D printing?", opt: ["A. Because some were more creative than others.", "B. Because prior knowledge determines the discovery of specific opportunities; you see what you know.", "C. Because the technology was marketed differently to them.", "D. Because pharmacists are generally more risk-averse."], ans: "B", exp: "Because prior knowledge determines the discovery of specific opportunities; you see what you know. (Source: Slide 16)" },
+            { topicId: 't3', q: "What is 'WIBNI' in the context of creativity techniques?", opt: ["A. A method to calculate ROI.", "B. A brainstorming prompt: 'Wouldn't It Be Nice If...'.", "C. A checklist for analyzing competitors.", "D. A legal framework for intellectual property."], ans: "B", exp: "A brainstorming prompt: 'Wouldn't It Be Nice If...'. (Source: Slide 14)" },
+            { topicId: 't3', q: "Creativity is described as involving two types of thinking. What are they?", opt: ["A. Optimistic and Pessimistic.", "B. Convergent (Logic/Rationality) and Divergent (Intuition/Irrationality).", "C. Causal and Effectual.", "D. Strategic and Operational."], ans: "B", exp: "Convergent (Logic/Rationality) and Divergent (Intuition/Irrationality). (Source: Slide 7)" },
+            { topicId: 't3', q: "How does 'Analogical Reasoning' function as a creativity technique?", opt: ["A. It lists all attributes of a product and modifies them.", "B. It applies knowledge/models from one domain to understand or develop ideas in another domain.", "C. It combines two opposing concepts.", "D. It reverses the problem statement."], ans: "B", exp: "It applies knowledge/models from one domain to understand or develop ideas in another domain. (Source: Slide 10)" },
+            { topicId: 't3', q: "Which of the following is considered an 'Environment' factor in the Opportunity Identification model?", opt: ["A. The entrepreneur's creativity.", "B. The entrepreneur's social network.", "C. PEST factors (Political, Economic, Social, Technological changes).", "D. The entrepreneur's prior knowledge."], ans: "C", exp: "PEST factors (Political, Economic, Social, Technological changes). (Source: Slide 26)" },
+            { topicId: 't3', q: "Statistics from the PSED (Panel Study of Entrepreneurial Dynamics) showed that the most common source leading to an idea (56%) was:", opt: ["A. Friends & Family.", "B. Industry Experience.", "C. Knowledge in Technology.", "D. Investors/Lenders."], ans: "B", exp: "Industry Experience. (Source: Slide 22)" },
+            { topicId: 't3', q: "In the context of 'Sources of Opportunities', which category does 'Demographic Change' fall into?", opt: ["A. Technological Inventions.", "B. Laws.", "C. Trends/Changes in social values.", "D. Changes in the Environment (Societal)."], ans: "D", exp: "Changes in the Environment (Societal). (Source: Slide 28)" },
+            { topicId: 't3', q: "Which statement about 'Creativity' in the lecture is FALSE?", opt: ["A. Creativity can be learned.", "B. Creativity is solely based on 'gut feeling' and irrationality.", "C. Creativity can be reactive (response to a problem) or proactive.", "D. Creativity involves both novelty and usefulness."], ans: "B", exp: "Creativity is solely based on 'gut feeling' and irrationality. (Source: Slide 7)" },
+
+            // T4: Decision Making (Effectuation) (12 Questions)
+            { topicId: 't4', q: "According to Knight (1921), what is the specific difference between 'Risk' and 'Uncertainty' in an entrepreneurial context?", opt: ["A. Risk involves negative outcomes; Uncertainty involves positive outcomes.", "B. Risk is when the probability of an outcome is knowable/calculable; Uncertainty is when it is unknowable.", "C. Risk applies to financial loss; Uncertainty applies to market acceptance.", "D. There is no difference."], ans: "B", exp: "Risk is when the probability of an outcome is knowable/calculable; Uncertainty is when it is unknowable. (Source: Slide 5)" },
+            { topicId: 't4', q: "In the 'Cooking Metaphor' for decision making, which behavior represents 'Effectuation'?", opt: ["A. Buying ingredients strictly according to a specific recipe.", "B. Opening the fridge, seeing what ingredients are available, and cooking something based on that.", "C. Going to a restaurant to analyze the menu prices.", "D. Creating a marketing plan."], ans: "B", exp: "Opening the fridge, seeing what ingredients are available, and cooking something based on that. (Source: Slide 10)" },
+            { topicId: 't4', q: "A founder says: 'I don't care about predicting the exact market size. I just want to control the future by partnering with people who commit to me right now.' Which Effectuation principle is this?", opt: ["A. Lemonade Principle.", "B. Pilot-in-the-Plane.", "C. Affordable Loss.", "D. Bird-in-Hand."], ans: "B", exp: "Pilot-in-the-Plane. (Source: Slide 9)" },
+            { topicId: 't4', q: "Which of the following best describes the 'Affordable Loss' principle?", opt: ["A. Calculate the Upside Potential (ROI).", "B. Minimize costs by buying cheap materials.", "C. Calculate the Downside Potential and risk no more than you can afford to lose.", "D. Secure insurance for all business assets."], ans: "C", exp: "Calculate the Downside Potential and risk no more than you can afford to lose. (Source: Slide 14)" },
+            { topicId: 't4', q: "When FlixBus does not own its own buses but partners with local bus companies to scale, they are applying which Effectuation principle?", opt: ["A. Lemonade (Leverage Surprise).", "B. Crazy Quilt (Form Partnerships).", "C. Bird-in-Hand (Means).", "D. Causation (Managerial Thinking)."], ans: "B", exp: "Crazy Quilt (Form Partnerships). (Source: Slide 18)" },
+            { topicId: 't4', q: "In the 'Bird-in-Hand' principle (Start with your means), which of the following is NOT one of the three core categories of means mentioned?", opt: ["A. Who I am (Identity/Traits).", "B. What I know (Knowledge).", "C. Whom I know (Network).", "D. What I have (Capital/Money)."], ans: "D", exp: "What I have (Capital/Money). (Source: Slide 10)" },
+            { topicId: 't4', q: "Viagra and Post-it Notes were presented as examples of which Effectuation principle?", opt: ["A. Affordable Loss.", "B. Crazy Quilt.", "C. Lemonade (Leverage Surprise/Failures).", "D. Bird-in-Hand."], ans: "C", exp: "Lemonade (Leverage Surprise/Failures). (Source: Slide 21-22)" },
+            { topicId: 't4', q: "In the Causal (Managerial) logic, the process starts with:", opt: ["A. A given goal, then selecting between means to achieve it.", "B. Given means, then imagining possible ends.", "C. A surprise event.", "D. A partnership offer."], ans: "A", exp: "A given goal, then selecting between means to achieve it. (Source: Slide 10)" },
+            { topicId: 't4', q: "In the 'Expanding Cycle of Resources' (Effectuation in Action), what happens if there is 'No Commitment' from a stakeholder?", opt: ["A. The entrepreneur calculates a new Affordable Loss.", "B. The cycle returns to 'Goals' to redefine them.", "C. The opportunity is put on hold (Dead End) or the entrepreneur seeks new interactions.", "D. The entrepreneur switches to Causal logic."], ans: "C", exp: "The opportunity is put on hold (Dead End) or the entrepreneur seeks new interactions. (Source: Slide 23)" },
+            { topicId: 't4', q: "What is the primary difference between 'Puzzle Solving' and 'Quilting' (Crazy Quilt principle)?", opt: ["A. Puzzles are harder.", "B. A puzzle has one fixed solution; a quilter creates the pattern by combining pieces (partners) as they go.", "C. Quilting requires more money.", "D. Puzzle solving is effectual; Quilting is causal."], ans: "B", exp: "A puzzle has one fixed solution; a quilter creates the pattern by combining pieces (partners) as they go. (Source: Slide 17)" },
+            { topicId: 't4', q: "Why is 'Causation' often less effective for early-stage startups than 'Effectuation'?", opt: ["A. Because startups don't have calculators.", "B. Because Causation relies on prediction, which is impossible in highly uncertain environments.", "C. Because Effectuation is the only valid business theory.", "D. Because investors hate Causal logic."], ans: "B", exp: "Because Causation relies on prediction, which is impossible in highly uncertain environments. (Source: Slide 9/10)" },
+            { topicId: 't4', q: "A student asks: 'Should I keep my idea secret or talk to people?' Effectuation theory suggests:", opt: ["A. Keep it secret to protect IP (Causation).", "B. Talk to people to form partnerships and gain commitments (Crazy Quilt).", "C. Only talk to family.", "D. File a patent before speaking to anyone."], ans: "B", exp: "Talk to people to form partnerships and gain commitments (Crazy Quilt). (Source: Slide 16/17)" },
+
+            // T5: Design Thinking (14 Questions)
+            { topicId: 't5', q: "Tim Brown (IDEO) defines Design Thinking as a human-centered approach that integrates three core circles. Which of the following is NOT one of these three circles?", opt: ["A. Desirability (Human needs).", "B. Viability (Business requirements).", "C. Feasibility (Technical possibilities).", "D. Scalability (Global market reach)."], ans: "D", exp: "Scalability is not one of the three core circles (Desirability, Viability, Feasibility). (Source: Slide 9)" },
+            { topicId: 't5', q: "In the 'Design Thinking Mindset', what does 'Reframing' refer to?", opt: ["A. Changing the pricing model of a product.", "B. Shifting the perspective on a problem to unlock new solution spaces.", "C. Redesigning the logo and branding.", "D. Moving the team to a new office location."], ans: "B", exp: "Shifting the perspective on a problem to unlock new solution spaces. (Source: Slide 8)" },
+            { topicId: 't5', q: "Why does the lecture suggest using 'Interviews' instead of 'Surveys' during the Empathize phase (as seen in the Shopping Cart case)?", opt: ["A. Because surveys are too expensive.", "B. Because interviews allow you to find hidden needs through deep qualitative insight and observation.", "C. Because interviews provide statistically significant data.", "D. Because surveys require technical knowledge to set up."], ans: "B", exp: "Because interviews allow you to find hidden needs through deep qualitative insight and observation. (Source: Slide 13)" },
+            { topicId: 't5', q: "In the IDEO Shopping Cart video case, what was the primary rule during the 'Brainstorming' phase?", opt: ["A. Critique ideas immediately to save time.", "B. Focus only on feasible ideas.", "C. Defer judgment and encourage wild ideas.", "D. Let the project leader decide the best ideas."], ans: "C", exp: "Defer judgment and encourage wild ideas. (Source: Slide 14)" },
+            { topicId: 't5', q: "In the Design Thinking process, the 'Define' mode concludes with a specific outcome. What is it?", opt: ["A. A finished prototype.", "B. A meaningful and actionable problem statement.", "C. A list of 100 ideas.", "D. A business plan."], ans: "B", exp: "A meaningful and actionable problem statement. (Source: Slide 19)" },
+            { topicId: 't5', q: "The lecture states 'Context is King'. When exploring context, examining 'Touchpoints' means:", opt: ["A. Counting how many times a user touches the physical product.", "B. Analyzing the different interaction points a user has while experiencing a service.", "C. Measuring the physical temperature of the environment.", "D. Identifying who the competitors are."], ans: "B", exp: "Analyzing the different interaction points a user has while experiencing a service. (Source: Slide 22)" },
+            { topicId: 't5', q: "Which Creativity Technique involves asking 'Put to other uses? Adapt? Modify? Magnify? Substitute?'", opt: ["A. WIBNI (Wouldn't It Be Nice If).", "B. Brainwriting.", "C. The Checklist Method (SCAMPER).", "D. Analogical Reasoning."], ans: "C", exp: "The Checklist Method (SCAMPER). (Source: Slide 13)" },
+            { topicId: 't5', q: "What is the 'Bias towards action' in the Design Thinking mindset?", opt: ["A. Planning everything perfectly before moving.", "B. Preferring doing and making over just thinking and meeting.", "C. Acting aggressive towards competitors.", "D. Ignoring customer feedback to move faster."], ans: "B", exp: "Preferring doing and making over just thinking and meeting. (Source: Slide 8)" },
+            { topicId: 't5', q: "When testing a prototype, the lecture advises: 'Don't assume you can simply put a prototype in front of a user to test it.' What should you do instead?", opt: ["A. Explain exactly how it works so they don't get confused.", "B. Sell the product to them immediately.", "C. Let users give natural feedback, observe their confusion, and don't guide them too much.", "D. Only test with family members who will be nice."], ans: "C", exp: "Let users give natural feedback, observe their confusion, and don't guide them too much. (Source: Slide 27)" },
+            { topicId: 't5', q: "In the 'Ideate' phase, the goal is to create 'fluency' and 'flexibility'. What does 'fluency' mean in this context?", opt: ["A. The quality of ideas.", "B. The volume (quantity) of ideas.", "C. The diversity of ideas.", "D. The speed of drawing."], ans: "B", exp: "The volume (quantity) of ideas. (Source: Slide 23)" },
+            { topicId: 't5', q: "The 'Enlightened trial and error' concept in the IDEO Shopping Cart case suggests that:", opt: ["A. The lone genius planner is superior to the team.", "B. You should never make mistakes.", "C. Rapid experimentation (play/failure) succeeds over rigid planning.", "D. Adults should act like children in meetings."], ans: "C", exp: "Rapid experimentation (play/failure) succeeds over rigid planning. (Source: Slide 14)" },
+            { topicId: 't5', q: "In the context of 'Empathize', what is the specific value of 'Observation' over just 'Listening'?", opt: ["A. Observation is faster.", "B. Observation reveals what people *do*, which often contradicts what they *say* they do.", "C. Listening is rude.", "D. Observation requires less effort."], ans: "B", exp: "Observation reveals what people *do*, which often contradicts what they *say* they do. (Source: Slide 18)" },
+            { topicId: 't5', q: "Which stage of the Design Thinking process is focused on 'making sense of widespread information' and 'becoming an expert'?", opt: ["A. Empathize.", "B. Define.", "C. Ideate.", "D. Test."], ans: "B", exp: "Define. (Source: Slide 19)" },
+            { topicId: 't5', q: "What is the 'WIBNI' technique?", opt: ["A. Will I Buy New Inventory?", "B. Wouldn't It Be Nice If... (a creativity technique to imagine ideal future states).", "C. Why Is Business Not Innovating?", "D. A prototyping software tool."], ans: "B", exp: "Wouldn't It Be Nice If... (a creativity technique to imagine ideal future states). (Source: Slide 14)" },
+
+            // T6: Prototyping (11 Questions)
+            { topicId: 't6', q: "In the 'NapCabs' example (sleeping cabins at airports), the prototype was crucial because:", opt: ["A. It allowed the founders to secure a patent immediately.", "B. It tested a 'Space' and 'Service' context, not just a physical object.", "C. It was fully automated from day one.", "D. It proved that people don't like sleeping at airports."], ans: "B", exp: "It tested a 'Space' and 'Service' context, not just a physical object. (Source: Slide 15/16)" },
+            { topicId: 't6', q: "According to the 'Project Risk vs. Iteration Curve' (Chen 2017), what is the relationship between the number of build/test cycles and project risk?", opt: ["A. More cycles increase risk because you spend more money.", "B. Risk remains constant regardless of testing.", "C. Risk drops dramatically as the number of build/test cycles increases early on.", "D. Risk only drops after the product launch."], ans: "C", exp: "Risk drops dramatically as the number of build/test cycles increases early on. (Source: Slide 10)" },
+            { topicId: 't6', q: "What is the specific danger of 'High Resolution' prototypes in the early 'Inspire/Evolve' stages?", opt: ["A. They are too cheap to make.", "B. Users may treat them as finished products and give feedback on minor details (e.g., fonts) rather than core concepts.", "C. They cannot be photographed.", "D. They require legal approval."], ans: "B", exp: "Users may treat them as finished products and give feedback on minor details (e.g., fonts) rather than core concepts. (Source: Slide 11)" },
+            { topicId: 't6', q: "Which of the following is an 'Experiential-Behavioral' prototype?", opt: ["A. A 3D printed model of a new chair.", "B. A spreadsheet calculating the pricing strategy.", "C. Role-playing a service interaction (e.g., a check-in process) using props.", "D. A CAD drawing of an engine."], ans: "C", exp: "Role-playing a service interaction (e.g., a check-in process) using props. (Source: Slide 7)" },
+            { topicId: 't6', q: "Why does the lecture encourage 'Failing early and often'?", opt: ["A. Because investors like to see failure.", "B. Because the cost of failure is low early in the timeline, but becomes exponentially higher later (e.g., at launch).", "C. Because it proves you are working hard.", "D. Because there is no such thing as success."], ans: "B", exp: "Because the cost of failure is low early in the timeline, but becomes exponentially higher later (e.g., at launch). (Source: Slide 10)" },
+            { topicId: 't6', q: "In the Google Glass prototyping example, Tom Chi demonstrates how they prototyped the 'heads-up display' experience using:", opt: ["A. Millions of dollars in R&D.", "B. A complex code base.", "C. A coat hanger, a sheet protector, and a pico projector connected to a laptop.", "D. A fully manufactured glass lens."], ans: "C", exp: "A coat hanger, a sheet protector, and a pico projector connected to a laptop. (Source: Slide 4)" },
+            { topicId: 't6', q: "The 'Swing' cartoon (Slide 21 in Prototyping) is a famous illustration of what problem?", opt: ["A. That swings are difficult to engineer.", "B. The disconnect between what the customer really needed and how different departments (Sales, Engineering) interpreted it.", "C. That trees are bad for building swings.", "D. That consulting is unnecessary."], ans: "B", exp: "The disconnect between what the customer really needed and how different departments (Sales, Engineering) interpreted it. (Source: Slide 21)" },
+            { topicId: 't6', q: "What is an 'Analytic-Virtual' prototype?", opt: ["A. A cardboard box model.", "B. A mathematical model or computer simulation used to test variables.", "C. A role-play scenario.", "D. A sketch on a napkin."], ans: "B", exp: "A mathematical model or computer simulation used to test variables. (Source: Slide 7)" },
+            { topicId: 't6', q: "Why are 'Paper Prototypes' (like the mobile app sketches shown) considered highly effective for early testing?", opt: ["A. They look professional.", "B. They allow the user to focus on the flow/interaction logic without getting distracted by design details (colors, pixels).", "C. They are expensive to produce.", "D. They can be sold to customers."], ans: "B", exp: "They allow the user to focus on the flow/interaction logic without getting distracted by design details (colors, pixels). (Source: Slide 18)" },
+            { topicId: 't6', q: "Ed Catmull (Pixar) says: 'Ideas only become great when...'", opt: ["A. they are kept secret.'", "B. they are funded by VCs.'", "C. they are challenged and tested.'", "D. they come from geniuses.'"], ans: "C", exp: "they are challenged and tested.' (Source: Slide 25)" },
+            { topicId: 't6', q: "According to the lecture, prototypes act as 'Stepping Stones'. This implies that:", opt: ["A. They should be perfect replications of the final product.", "B. They are disposable tools used to learn and bridge the gap to the final solution.", "C. They are only useful for physical products, not software.", "D. They are the final deliverable for the client."], ans: "B", exp: "They are disposable tools used to learn and bridge the gap to the final solution. (Source: Slide 3)" },
+
+            // T7: Business Modeling (20 Questions)
+            { topicId: 't7', q: "A common point of confusion is the difference between 'Strategy' and a 'Business Model'. According to the lecture, what is the specific distinction?", opt: ["A. A Business Model is a long-term plan (5+ years), while Strategy is short-term execution.", "B. Strategy describes the rationale of how an organization creates value; a Business Model is the choice of competition.", "C. Strategy refers to the choice of business model through which the firm competes; the Business Model describes the rationale of value creation, delivery, and capture.", "D. There is no difference; the terms are used interchangeably in the Osterwalder framework."], ans: "C", exp: "Strategy refers to the choice of business model through which the firm competes; the Business Model describes the rationale of value creation, delivery, and capture. (Source: Slide 6)" },
+            { topicId: 't7', q: "When visualizing the Business Model Canvas, the lecture explicitly suggests starting in the center. Why?", opt: ["A. Because the 'Value Proposition' acts as the bridge connecting the Front End (Customer) and Back End (Efficiency).", "B. Because 'Key Resources' determine what you can build.", "C. Because 'Revenue Streams' are the most important goal.", "D. Because 'Customer Segments' define the market size."], ans: "A", exp: "Because the 'Value Proposition' acts as the bridge connecting the Front End (Customer) and Back End (Efficiency). (Source: Slide 8)" },
+            { topicId: 't7', q: "In a Multi-sided Business Model (e.g., Google or LinkedIn), users often use the service for free. How is value captured from these 'Users' if they don't pay money?", opt: ["A. Value is not captured from users; it is a charitable component of the model.", "B. Value is captured in a 'derivative currency' (e.g., attention, data, content), which is then monetized via customers.", "C. Users pay implicitly through 'Economies of Scope'.", "D. Value is captured through government subsidies."], ans: "B", exp: "Value is captured in a 'derivative currency' (e.g., attention, data, content), which is then monetized via customers. (Source: Slide 33)" },
+            { topicId: 't7', q: "Which of the following building blocks is strictly part of the 'Back End' of the Business Model Canvas (Efficiency/Company side)?", opt: ["A. Customer Relationships.", "B. Key Activities.", "C. Revenue Streams.", "D. Channels."], ans: "B", exp: "Key Activities. (Source: Slide 17)" },
+            { topicId: 't7', q: "In the Personio case study, 'Software', 'Human Resources', and 'Databases' were classified under which BMC block?", opt: ["A. Key Activities.", "B. Key Resources.", "C. Value Propositions.", "D. Channels."], ans: "B", exp: "Key Resources. (Source: Slide 26)" },
+            { topicId: 't7', q: "Regarding 'Cost Structure': What is the difference between 'Economies of Scale' and 'Economies of Scope'?", opt: ["A. Scale = cost advantage due to output volume; Scope = cost advantage due to larger variety of operations.", "B. Scale = fixed costs; Scope = variable costs.", "C. Scale = reducing personnel; Scope = reducing marketing.", "D. Scale = domestic markets; Scope = international markets."], ans: "A", exp: "Scale = cost advantage due to output volume; Scope = cost advantage due to larger variety of operations. (Source: Slide 21)" },
+            { topicId: 't7', q: "In the LinkedIn Business Model example, 'Cross-side Network Effects' are listed as a Value Proposition. What does this specifically mean?", opt: ["A. Users benefit when more of their own friends join.", "B. The value for one segment (e.g., Recruiters) increases as the number of users in the other segment (e.g., Professionals) grows.", "C. The platform uses cross-selling techniques to sell premium subscriptions.", "D. The technical infrastructure is shared across borders."], ans: "B", exp: "The value for one segment (e.g., Recruiters) increases as the number of users in the other segment (e.g., Professionals) grows. (Source: Slide 34)" },
+            { topicId: 't7', q: "Which of the following is NOT considered a type of 'Key Activity' in the BMC framework?", opt: ["A. Production (Designing, making, delivering).", "B. Problem Solving (Consulting, hospitals).", "C. Platform / Network (Matchmaking, software).", "D. Asset Sale (Selling physical goods)."], ans: "D", exp: "Asset Sale (Selling physical goods). (Source: Slide 20)" },
+            { topicId: 't7', q: "When analyzing 'Revenue Streams', 'Dynamic Pricing' is distinguished from 'Fixed Pricing'. Which of the following is an example of Dynamic Pricing?", opt: ["A. List Price.", "B. Volume Dependent (bulk discounts).", "C. Real-time Market (Yield management/Stock market).", "D. Product Feature dependent."], ans: "C", exp: "Real-time Market (Yield management/Stock market). (Source: Slide 15)" },
+            { topicId: 't7', q: "Channels serve multiple functions beyond just delivery. Which of the following is a function of the 'Channels' block?", opt: ["A. Manufacturing the product.", "B. Raising awareness among customers about products and services.", "C. Calculating the cost structure.", "D. Defining the key partners."], ans: "B", exp: "Raising awareness among customers about products and services. (Source: Slide 13)" },
+            { topicId: 't7', q: "In the context of 'Customer Relationships', what does 'Co-creation' entail?", opt: ["A. The company creates products with its suppliers.", "B. The company engages customers to assist in the design or creation of value (e.g., writing reviews, content).", "C. Two companies merge to create a new entity.", "D. The sales team co-creates a contract with the legal team."], ans: "B", exp: "The company engages customers to assist in the design or creation of value (e.g., writing reviews, content). (Source: Slide 14)" },
+            { topicId: 't7', q: "Why does the lecture suggest keeping the 'Back End' for last when designing a Business Model?", opt: ["A. Because it is the most expensive part.", "B. Because you first need to define the Value Proposition and Market (Front End) to know what activities/resources are actually required.", "C. Because the Back End is less important than the Front End.", "D. Because financial auditors only care about the Back End."], ans: "B", exp: "Because you first need to define the Value Proposition and Market (Front End) to know what activities/resources are actually required. (Source: Slide 17)" },
+            { topicId: 't7', q: "In the Personio case, 'Bundesverband der Personalmanager' and 'Gründerszene Jobbörse' represent which block?", opt: ["A. Customer Segments.", "B. Key Partners.", "C. Channels.", "D. Key Resources."], ans: "B", exp: "Key Partners. (Source: Slide 24)" },
+            { topicId: 't7', q: "Which of the following fits the definition of a 'Key Resource' in the category of 'Intellectual'?", opt: ["A. Cash and lines of credit.", "B. Manufacturing facilities.", "C. Brands, proprietary knowledge, patents, and customer databases.", "D. Talented scientists and sales staff."], ans: "C", exp: "Brands, proprietary knowledge, patents, and customer databases. (Source: Slide 18)" },
+            { topicId: 't7', q: "Osterwalder & Pigneur (2010) define a Business Model as describing the rationale of how an organization does three things. What are they?", opt: ["A. Invents, Produces, and Sells products.", "B. Creates, Delivers, and Captures value.", "C. Minimizes costs, Maximizes profits, and Satisfies shareholders.", "D. Hires, Trains, and Retains employees."], ans: "B", exp: "Creates, Delivers, and Captures value. (Source: Slide 5)" },
+            { topicId: 't7', q: "In a 'Cost-Driven' business model (as opposed to Value-Driven), the primary focus is on:", opt: ["A. Premium value propositions and personalized service.", "B. Minimizing costs wherever possible (leanest cost structure, low price value prop).", "C. Luxury branding.", "D. High R&D spending."], ans: "B", exp: "Minimizing costs wherever possible (leanest cost structure, low price value prop). (Source: Slide 21)" },
+            { topicId: 't7', q: "What is the 'Secondary Market' in a multi-sided business model context?", opt: ["A. The market where used goods are sold.", "B. The market where 'Customers' pay for the derivative currency (data/attention) generated by 'Users'.", "C. The international market expansion.", "D. The stock exchange."], ans: "B", exp: "The market where 'Customers' pay for the derivative currency (data/attention) generated by 'Users'. (Source: Slide 33)" },
+            { topicId: 't7', q: "Personio's 'Revenue Streams' are described as:", opt: ["A. One-time asset sales of software CDs.", "B. Advertising revenue from banners.", "C. Monthly/Annual subscription fees (SaaS model) and fees for add-ons.", "D. Freemium model only."], ans: "C", exp: "Monthly/Annual subscription fees (SaaS model) and fees for add-ons. (Source: Slide 25)" },
+            { topicId: 't7', q: "Which question is central to the 'Value Proposition' block?", opt: ["A. How much revenue can we generate?", "B. Who are our key suppliers?", "C. Which one of our customer's problems are we helping to solve?", "D. What key activities are most expensive?"], ans: "C", exp: "Which one of our customer's problems are we helping to solve? (Source: Slide 9)" },
+            { topicId: 't7', q: "Motivations for 'Key Partnerships' include all of the following EXCEPT:", opt: ["A. Optimization and Economy of Scale.", "B. Reduction of risk and uncertainty.", "C. Acquisition of particular resources.", "D. Increasing internal bureaucracy."], ans: "D", exp: "Increasing internal bureaucracy. (Source: Slide 19)" },
+
+            // T8: Entrepreneurial Finance (12 Questions)
+            { topicId: 't8', q: "A startup begins the year with €200,000 in cash. At the end of the year, they have €80,000 remaining. Based on this 'Cash Burn Rate', what is their remaining 'Cash Runway' in months?", opt: ["A. 8 months", "B. 12 months", "C. 20 months", "D. 4 months"], ans: "A", exp: "Burn Rate = (200k - 80k) / 12 = 10k/month. Runway = Remaining Cash / Burn Rate = 80k / 10k = 8 months. (Source: Finance Slide 3)" },
+            { topicId: 't8', q: "Why do Venture Capitalists (VCs) demand such a high Internal Rate of Return (IRR > 20%), which is significantly higher than bank loan interest rates?", opt: ["A. Because VCs use their own personal savings and have high liquidity needs.", "B. Because they mathematically rely on a 'portfolio strategy' where 1 'star' investment must cover the losses of ~7-9 failed or mediocre ventures.", "C. Because they provide loans rather than equity, which carries higher legal risk.", "D. Because inflation in the technology sector is historically higher than in other industries."], ans: "B", exp: "Because they mathematically rely on a 'portfolio strategy' where 1 'star' investment must cover the losses of ~7-9 failed or mediocre ventures. (Source: Finance Slide 14)" },
+            { topicId: 't8', q: "In the context of the 'Valley of Death' (Cash Flow Curve), which statement is TRUE?", opt: ["A. It occurs immediately after the IPO.", "B. It represents the period where cumulative cash flow is negative, typically between the development/startup stage and the break-even point.", "C. It only applies to companies that fail to raise Series A funding.", "D. It is the period where the firm generates revenue but chooses not to take a profit."], ans: "B", exp: "It represents the period where cumulative cash flow is negative, typically between the development/startup stage and the break-even point. (Source: Finance Slide 3)" },
+            { topicId: 't8', q: "You are considering 'Bootstrapping' your venture. What is the primary strategic trade-off you are making?", opt: ["A. You gain faster growth potential but lose control of the board.", "B. You minimize financial risk but increase the risk of bankruptcy due to high interest rates.", "C. You retain full ownership and control, but you likely face slower growth and higher personal financial pressure.", "D. You gain access to better networks but lose equity."], ans: "C", exp: "You retain full ownership and control, but you likely face slower growth and higher personal financial pressure. (Source: Finance Slide 6)" },
+            { topicId: 't8', q: "Which of the following is a specific benefit of 'Debt Financing' compared to Equity Financing?", opt: ["A. The investor shares the risk of bankruptcy.", "B. It requires no collateral or security.", "C. Interest payments are tax-deductible, and the founder retains full ownership/control.", "D. You do not have to repay the principal if the venture fails."], ans: "C", exp: "Interest payments are tax-deductible, and the founder retains full ownership/control. (Source: Finance Slide 10)" },
+            { topicId: 't8', q: "When accepting money from the '3 Fs' (Family, Friends, and Fools), what is a unique disadvantage compared to professional investors?", opt: ["A. The interest rates are usually higher.", "B. They require complex due diligence processes.", "C. Relational conflicts and 'Reciprocity' (feeling obliged to them socially) can interfere with business decisions.", "D. They always demand a board seat."], ans: "C", exp: "Relational conflicts and 'Reciprocity' (feeling obliged to them socially) can interfere with business decisions. (Source: Finance Slide 11)" },
+            { topicId: 't8', q: "What is the fundamental difference between a Business Angel and a Venture Capitalist?", opt: ["A. Angels invest earlier (Seed) using their own personal wealth; VCs invest later using pooled funds from limited partners.", "B. Angels take majority stakes (>50%); VCs take minority stakes.", "C. Angels are public organizations; VCs are private.", "D. Angels provide loans; VCs provide equity."], ans: "A", exp: "Angels invest earlier (Seed) using their own personal wealth; VCs invest later using pooled funds from limited partners. (Source: Finance Slides 13-14)" },
+            { topicId: 't8', q: "Which funding source is most appropriate for the 'Survival Stage' (where the firm has entered the market but needs to cover expenses to reach growth)?", opt: ["A. Initial Public Offering (IPO).", "B. Subsidies and Grants.", "C. Venture Capital.", "D. Own money only."], ans: "C", exp: "Venture Capital. (Source: Finance Slide 4)" },
+            { topicId: 't8', q: "What is a 'Trade Sale' in the context of Exit Strategies?", opt: ["A. Listing the company on the stock exchange.", "B. Selling the company to a strategic investor (e.g., a corporation) or a private equity firm.", "C. Selling products to customers at a discount to boost revenue.", "D. The founders buying back shares from investors."], ans: "B", exp: "Selling the company to a strategic investor (e.g., a corporation) or a private equity firm. (Source: Finance Slide 21)" },
+            { topicId: 't8', q: "In a 'Reward-based Crowdfunding' campaign (e.g., Kickstarter), what do backers receive?", opt: ["A. A share of the company's equity.", "B. Repayment of their loan with interest.", "C. Tokens of appreciation or the product itself (pre-sales), but no ownership.", "D. Voting rights in the company."], ans: "C", exp: "Tokens of appreciation or the product itself (pre-sales), but no ownership. (Source: Finance Slide 17)" },
+            { topicId: 't8', q: "What is the 'Leverage Effect' regarding Return on Equity (ROE)?", opt: ["A. Using debt capital can increase the ROE for owners, provided the return on total capital exceeds the interest on debt.", "B. Using equity leverage allows founders to fire employees more easily.", "C. It refers to the negotiating power VCs have over founders.", "D. It describes how network effects scale a platform business."], ans: "A", exp: "Using debt capital can increase the ROE for owners, provided the return on total capital exceeds the interest on debt. (Source: Finance Slide 10)" },
+            { topicId: 't8', q: "Which of the following is NOT a typical risk reduction strategy used by Venture Capitalists?", opt: ["A. Investing in a portfolio of companies.", "B. Staged financing (Seed, Series A, B...).", "C. Specialization in specific industries.", "D. Guaranteed repayment of the investment principal by the government."], ans: "D", exp: "Guaranteed repayment of the investment principal by the government. (Source: Finance Slide 14)" },
+            { topicId: 't8', q: "What is a 'Leveraged Buyout' (LBO)?", opt: ["A. Selling the startup to a competitor.", "B. An IPO.", "C. Selling the company to an investor who uses a significant amount of borrowed money (debt) to finance the acquisition.", "D. Founders buying out the VCs using their own cash."], ans: "C", exp: "Selling the company to an investor who uses a significant amount of borrowed money (debt) to finance the acquisition. (Source: Finance Slide 21)" },
+            { topicId: 't8', q: "In the 'Venture Capital Cycle', who are the 'Limited Partners' (Fund Investors)?", opt: ["A. The startup founders.", "B. The VC firm managers.", "C. The entities (pension funds, wealthy individuals) that provide the capital to the VC firm.", "D. The banks providing loans."], ans: "C", exp: "The entities (pension funds, wealthy individuals) that provide the capital to the VC firm. (Source: Finance Slide 15)" },
+            { topicId: 't8', q: "What is the 'Cash Burn Rate'?", opt: ["A. The interest rate on a bank loan.", "B. The rate at which a venture consumes its cash reserves to finance overhead before generating positive cash flow.", "C. The speed at which the stock price falls.", "D. The tax rate on profits."], ans: "B", exp: "The rate at which a venture consumes its cash reserves to finance overhead before generating positive cash flow. (Source: Finance Slide 3)" },
+
+            // T9: Teams (18 Questions)
+            { topicId: 't9', q: "According to the lecture, what is the 'First Deal' in an entrepreneurial team, and why is it critical?", opt: ["A. The first sale to a customer; it proves the market exists.", "B. The equity distribution; it sets the tone for power, control, and motivation, yet is often done too quickly without discussion.", "C. The hiring of the first employee; it changes the culture.", "D. The first VC investment; it validates the valuation."], ans: "B", exp: "The equity distribution; it sets the tone for power, control, and motivation, yet is often done too quickly without discussion. (Source: Teams Slide 16)" },
+            { topicId: 't9', q: "In the IMO Framework (Input-Mediator-Outcome), 'Psychological Safety' and 'Team Confidence' are classified as:", opt: ["A. Inputs.", "B. Team Processes.", "C. Emergent States (Affective).", "D. Outcomes."], ans: "C", exp: "Emergent States (Affective). (Source: Teams Slide 6)" },
+            { topicId: 't9', q: "A founding team creates a vesting schedule with a 'One Year Cliff' over a 4-year period. Founder X leaves after 11 months. How much equity do they keep?", opt: ["A. 25% (Pro-rated for the first year).", "B. 0% (They did not cross the cliff).", "C. 22.9% (11/48ths of the total).", "D. 100% (Equity is usually granted immediately)."], ans: "B", exp: "0% (They did not cross the cliff). (Source: Teams Slide 21)" },
+            { topicId: 't9', q: "Research on team composition suggests a specific balance is ideal. Which combination is recommended?", opt: ["A. Homogeneity in skills, Heterogeneity in values.", "B. Heterogeneity in competence (Skills), Homogeneity in values and vision.", "C. Total Heterogeneity in everything to maximize diversity.", "D. Total Homogeneity to minimize conflict."], ans: "B", exp: "Heterogeneity in competence (Skills), Homogeneity in values and vision. (Source: Teams Slide 11)" },
+            { topicId: 't9', q: "Wasserman (2012) argues that when splitting equity, teams often focus too much on the past ('Idea Premium'). What should they focus on instead?", opt: ["A. The amount of cash each person contributed.", "B. Forward orientation: The fact that 95% of the value-creation work remains in the future.", "C. Who has the most senior job title.", "D. Who has the largest network."], ans: "B", exp: "Forward orientation: The fact that 95% of the value-creation work remains in the future. (Source: Teams Slide 18)" },
+            { topicId: 't9', q: "What is the primary challenge of founding a team based on 'Strong Ties' (e.g., close friends/family)?", opt: ["A. It is hard to find people with the right skills.", "B. Relational uncertainty is high.", "C. It is difficult to distinguish between 'Task Conflict' and 'Relationship Conflict', making professional disagreements escalate personally.", "D. Investors refuse to invest in family businesses."], ans: "C", exp: "It is difficult to distinguish between 'Task Conflict' and 'Relationship Conflict', making professional disagreements escalate personally. (Source: Teams Slide 14)" },
+            { topicId: 't9', q: "Which part of the 'Team Charter' focuses on 'How do we measure contributions?' and 'How do we sanction non-performance?'", opt: ["A. Part 1: Laying the foundations.", "B. Part 2: Roles and Expectations.", "C. Part 3: Contributions and Rewards.", "D. Part 4: Future Development."], ans: "C", exp: "Part 3: Contributions and Rewards. (Source: Teams Slide 15)" },
+            { topicId: 't9', q: "In the context of team conflict, what is 'Destructive Communication'?", opt: ["A. Focusing on the task and performance.", "B. Being timely and specific.", "C. Focusing on the recipient/person (Blame) and being non-specific.", "D. Offering concrete suggestions for improvement."], ans: "C", exp: "Focusing on the recipient/person (Blame) and being non-specific. (Source: Teams Slide 24)" },
+            { topicId: 't9', q: "According to the definition provided in the lecture, an 'Entrepreneurial Team' must meet which specific criteria?", opt: ["A. At least 3 people, and they must work in the same office.", "B. At least 2 individuals, active part in creation, key strategic role, and equity ownership (>10%).", "C. Any group of people working at a startup.", "D. The founders and the first 5 employees."], ans: "B", exp: "At least 2 individuals, active part in creation, key strategic role, and equity ownership (>10%). (Source: Teams Slide 3)" },
+            { topicId: 't9', q: "Regarding 'Weak Ties' in team formation: What is the main benefit compared to Strong Ties?", opt: ["A. You trust them more immediately.", "B. You avoid relational uncertainty.", "C. You maximize human capital by accessing diverse skills and networks not available in your close circle.", "D. You don't need a contract."], ans: "C", exp: "You maximize human capital by accessing diverse skills and networks not available in your close circle. (Source: Teams Slide 13)" },
+            { topicId: 't9', q: "What is 'Vesting'?", opt: ["A. Buying a protective vest for the lab.", "B. A mechanism where founders earn their equity shares over time (or milestones) rather than getting them all at once.", "C. Selling shares to a Venture Capitalist.", "D. The process of registering a company."], ans: "B", exp: "A mechanism where founders earn their equity shares over time (or milestones) rather than getting them all at once. (Source: Teams Slide 20)" },
+            { topicId: 't9', q: "In the 'Input-Mediator-Outcome' model, what role do 'Transition Processes' and 'Action Processes' play?", opt: ["A. They are Inputs (what the team starts with).", "B. They are Mediators (Team Processes) that transform inputs into outcomes.", "C. They are Outcomes (Financial results).", "D. They are Personality Traits."], ans: "B", exp: "They are Mediators (Team Processes) that transform inputs into outcomes. (Source: Teams Slide 6)" },
+            { topicId: 't9', q: "Why is 'Task Conflict' sometimes considered beneficial for entrepreneurial teams?", opt: ["A. It allows team members to vent their anger.", "B. It increases the exchange of ideas and decision quality (if it doesn't turn into relationship conflict).", "C. It slows down decision making, which is safer.", "D. It signals to investors that the team is passionate."], ans: "B", exp: "It increases the exchange of ideas and decision quality (if it doesn't turn into relationship conflict). (Source: Teams Slide 22)" },
+            { topicId: 't9', q: "Which leadership style is emphasized in the lecture as effective for entrepreneurial teams?", opt: ["A. Strict hierarchical command and control.", "B. Leading by example, empathy, and transferring responsibility/ownership.", "C. Micro-management to ensure quality.", "D. Avoiding all conflict."], ans: "B", exp: "Leading by example, empathy, and transferring responsibility/ownership. (Source: Teams Slide 9)" },
+            { topicId: 't9', q: "In the 'Team Canvas', what is the purpose of the 'Values' section?", opt: ["A. To list the financial value of the company.", "B. To define the shared principles that guide behavior and decision-making.", "C. To list the skills of each member.", "D. To define the product price."], ans: "B", exp: "To define the shared principles that guide behavior and decision-making. (Source: Teams Slide 25)" },
+
+            // T10: Strategy & Growth (15 Questions)
+            { topicId: 't10', q: "In Greiner's Growth Model, the 'Phase of Direction' ends with which specific crisis?", opt: ["A. Crisis of Leadership.", "B. Crisis of Autonomy.", "C. Crisis of Control.", "D. Crisis of Red Tape."], ans: "B", exp: "Crisis of Autonomy. (Source: Strategy Slide 11)" },
+            { topicId: 't10', q: "According to the Ansoff Matrix, if a firm tries to sell its *existing* products to a *new* demographic or geographical market, this is called:", opt: ["A. Market Penetration.", "B. Product Development.", "C. Market Development.", "D. Diversification."], ans: "C", exp: "Market Development. (Source: Strategy Slide 15)" },
+            { topicId: 't10', q: "What is the 'Asset of Newness' for a startup?", opt: ["A. Having unestablished informal structures causing confusion.", "B. The lack of established routines allowing for a learning advantage and flexibility.", "C. The ability to charge higher prices because the product is novel.", "D. The ability to hire cheaper labor."], ans: "B", exp: "The lack of established routines allowing for a learning advantage and flexibility. (Source: Strategy Slide 3)" },
+            { topicId: 't10', q: "Which crisis follows the 'Phase of Delegation' in Greiner's model?", opt: ["A. Crisis of Autonomy.", "B. Crisis of Control.", "C. Crisis of Leadership.", "D. Crisis of Growth."], ans: "B", exp: "Crisis of Control. (Source: Strategy Slide 11)" },
+            { topicId: 't10', q: "A 'Narrow-Scope' entry strategy reduces competition-related risks but increases which type of risk?", opt: ["A. Technological uncertainty.", "B. Market uncertainty (putting all eggs in one basket).", "C. Regulatory risk.", "D. Personnel risk."], ans: "B", exp: "Market uncertainty (putting all eggs in one basket). (Source: Strategy Slide 6)" },
+            { topicId: 't10', q: "What is a key advantage of a 'Late-Mover Strategy' (e.g., Google)?", opt: ["A. Securing supplier channels first.", "B. Customer loyalty is already established.", "C. Reduced R&D costs and lower market/technological uncertainty.", "D. Facing less competitive rivalry."], ans: "C", exp: "Reduced R&D costs and lower market/technological uncertainty. (Source: Strategy Slide 4)" },
+            { topicId: 't10', q: "If a ski manufacturer decides to buy a ski resort (the mountain itself), which type of Diversification Strategy is this?", opt: ["A. Backward Integration.", "B. Forward Integration.", "C. Horizontal Integration.", "D. Market Penetration."], ans: "C", exp: "Horizontal Integration. (Source: Strategy Slide 17/19)" },
+            { topicId: 't10', q: "The 'Crisis of Red Tape' typically occurs after which growth phase?", opt: ["A. Coordination.", "B. Delegation.", "C. Direction.", "D. Collaboration."], ans: "A", exp: "Coordination. (Source: Strategy Slide 11)" },
+            { topicId: 't10', q: "What characterizes a 'Gazelle' firm?", opt: ["A. Valued at over $1 Billion.", "B. Less than 5 years old with >20% average annual growth.", "C. A firm with <10 employees.", "D. A firm that expands internationally within 3 years."], ans: "B", exp: "Less than 5 years old with >20% average annual growth. (Source: Strategy Slide 10)" },
+            { topicId: 't10', q: "According to Wasserman (2012), how does the entrepreneur's role change during the growth stage?", opt: ["A. They focus more on internal product prototyping.", "B. They become a 'spider in the web' with broad overlapping roles.", "C. They shift focus to external strategic management, culture, and recruiting professional staff.", "D. They stop dealing with investors."], ans: "C", exp: "They shift focus to external strategic management, culture, and recruiting professional staff. (Source: Strategy Slide 12)" },
+            { topicId: 't10', q: "Which Ansoff strategy involves developing *new* products for *existing* markets?", opt: ["A. Diversification.", "B. Market Development.", "C. Product Development.", "D. Penetration."], ans: "C", exp: "Product Development. (Source: Strategy Slide 16)" },
+            { topicId: 't10', q: "What is the 'Liability of Newness'?", opt: ["A. The cost of registering a new trademark.", "B. The risk of failure due to high learning costs, unestablished roles, and lack of legitimacy.", "C. The legal liability founders face if the company goes bankrupt.", "D. The debt accumulated during the seed stage."], ans: "B", exp: "The risk of failure due to high learning costs, unestablished roles, and lack of legitimacy. (Source: Strategy Slide 3)" },
+            { topicId: 't10', q: "A 'Broad-Scope' entry strategy has the benefit of reducing market uncertainty, but opens the firm up to:", opt: ["A. More competition on many different fronts.", "B. Higher production costs per unit.", "C. Less access to capital.", "D. Regulatory fines."], ans: "A", exp: "More competition on many different fronts. (Source: Strategy Slide 7)" },
+            { topicId: 't10', q: "If Head Ski Company starts manufacturing the *machines* that make the skis, this is an example of:", opt: ["A. Forward Integration.", "B. Backward Integration.", "C. Horizontal Integration.", "D. Market Penetration."], ans: "B", exp: "Backward Integration. (Source: Strategy Slide 19)" },
+            { topicId: 't10', q: "Which Growth Phase is characterized by 'Direction' and ends in the 'Crisis of Autonomy'?", opt: ["A. Phase 1.", "B. Phase 2.", "C. Phase 3.", "D. Phase 4."], ans: "B", exp: "Phase 2. (Source: Strategy Slide 11)" },
+
+            // T11: Internationalization (10 Questions)
+            { topicId: 't11', q: "According to the 'Uppsala Model' (Stage Model) of internationalization from the 1970s, how do firms typically expand?", opt: ["A. They start with a global vision from day one.", "B. They incrementally increase commitment, starting with markets that have a low 'psychic distance'.", "C. They immediately establish wholly-owned subsidiaries to protect IP.", "D. They focus solely on licensing agreements to minimize risk."], ans: "B", exp: "They incrementally increase commitment, starting with markets that have a low 'psychic distance'. (Source: Internationalization Slide 4)" },
+            { topicId: 't11', q: "In Dunning's Eclectic Theory (OLI Framework), a firm will choose 'Exporting' over other entry modes when:", opt: ["A. It has Ownership advantages, but NO Location or Internalization advantages in the foreign country.", "B. It has Ownership and Internalization advantages, but NO Location advantages abroad.", "C. It has all three: Ownership, Location, and Internalization advantages.", "D. It lacks Ownership advantages."], ans: "B", exp: "It has Ownership and Internalization advantages, but NO Location advantages abroad. (Source: Internationalization Slides 12-13)" },
+            { topicId: 't11', q: "Which of the following is a characteristic of 'Born Global' firms (1990s model) compared to traditional exporters?", opt: ["A. They operate in slow-moving industries with standardized products.", "B. They wait for a long period of domestic success before going abroad.", "C. They often have standardized products for niche segments and high international entrepreneurial orientation.", "D. They rely exclusively on large physical assets."], ans: "C", exp: "They often have standardized products for niche segments and high international entrepreneurial orientation. (Source: Internationalization Slide 6)" },
+            { topicId: 't11', q: "Starbucks' failure in Australia was attributed to several factors. Which of the following was NOT one of the lessons learned?", opt: ["A. They needed to create more value than local competitors.", "B. They should have lowered their prices immediately to undercut locals.", "C. They needed to give customers time to get to know the offering.", "D. They needed to find the right customer segment and location."], ans: "B", exp: "They should have lowered their prices immediately to undercut locals. (Source: Internationalization Slide 17)" },
+            { topicId: 't11', q: "If a company chooses 'Licensing' as a market entry mode, what is the primary disadvantage they face?", opt: ["A. High transportation costs.", "B. High investment costs for physical facilities.", "C. Lack of control over the licensee and potential loss of intellectual property protection.", "D. The inability to scale quickly."], ans: "C", exp: "Lack of control over the licensee and potential loss of intellectual property protection. (Source: Internationalization Slide 11)" },
+            { topicId: 't11', q: "According to Dunning's framework, if a firm possesses Ownership, Internalization, AND Location advantages in a foreign country, which entry mode is theoretically predicted?", opt: ["A. Exporting.", "B. Licensing.", "C. Foreign Direct Investment (Subsidiary).", "D. Joint Venture."], ans: "C", exp: "Foreign Direct Investment (Subsidiary). (Source: Internationalization Slide 13)" },
+            { topicId: 't11', q: "Which of the following represents an 'Institutional Barrier' to foreign market entry?", opt: ["A. Customer preference for 'buy-local'.", "B. Local content clauses and ownership restrictions.", "C. Difficulty finding skilled personnel.", "D. Lack of distribution channels."], ans: "B", exp: "Local content clauses and ownership restrictions. (Source: Internationalization Slide 8)" },
+            { topicId: 't11', q: "What is 'Psychic Distance' in the context of internationalization?", opt: ["A. The physical distance in kilometers between the HQ and the target market.", "B. The perceived uncertainty and lack of knowledge about a foreign market due to cultural/language differences.", "C. The difference in time zones.", "D. The cost difference in labor."], ans: "B", exp: "The perceived uncertainty and lack of knowledge about a foreign market due to cultural/language differences. (Source: Internationalization Slide 4)" },
+            { topicId: 't11', q: "Why did Logitech engage in internationalization so quickly (Born Global)?", opt: ["A. Because the Swiss market was too small for their narrow niche product.", "B. Because they wanted to avoid Swiss taxes.", "C. Because they had no competitors in Switzerland.", "D. Because they were acquired by a US firm immediately."], ans: "A", exp: "Because the Swiss market was too small for their narrow niche product. (Source: Internationalization Slide 5/6)" },
+            { topicId: 't11', q: "A Joint Venture offers access to local knowledge and shared costs. What is its main risk/disadvantage?", opt: ["A. High transportation costs.", "B. Potential for conflict (instability) and loss of autonomous decision making.", "C. Full financial liability falls on one partner.", "D. It is illegal in most emerging markets."], ans: "B", exp: "Potential for conflict (instability) and loss of autonomous decision making. (Source: Internationalization Slide 11)" },
+
+            // T12: Social Entrepreneurship (25 Questions)
+            { topicId: 't12', q: "According to the lecture, what is the key difference between 'Philanthropy' (Traditional Charity) and 'Social Business'?", opt: ["A. Philanthropy relies on donations and cannot scale easily; Social Business scales through a self-sustaining revenue model.", "B. Philanthropy is for-profit; Social Business is non-profit.", "C. Philanthropy focuses on environmental issues; Social Business focuses on social issues.", "D. There is no difference; both rely 100% on grants."], ans: "A", exp: "Philanthropy relies on donations and cannot scale easily; Social Business scales through a self-sustaining revenue model. (Source: Social Entrepreneurship Lecture, Slide 2 & 5)" },
+            { topicId: 't12', q: "A 'Social Bricoleur' is defined by Zahra et al. (2009) as an entrepreneur who:", opt: ["A. Creates entirely new social systems on a global scale.", "B. Focuses on filling gaps left by governments and businesses.", "C. Acts on local needs using locally discovered/available resources.", "D. Prioritizes profit maximization over social impact."], ans: "C", exp: "Acts on local needs using locally discovered/available resources. (Source: Social Entrepreneurship Lecture, Slide 8)" },
+            { topicId: 't12', q: "In the IOOI Framework for Impact Measurement, what is the difference between 'Output' and 'Outcome'?", opt: ["A. Output is the money invested; Outcome is the profit.", "B. Output is the direct achievement (e.g., # of trainings held); Outcome is the short-term change in the target group (e.g., knowledge gained).", "C. Output is the long-term societal change; Outcome is the immediate result.", "D. Output and Outcome are synonyms."], ans: "B", exp: "Output is the direct achievement (e.g., # of trainings held); Outcome is the short-term change in the target group (e.g., knowledge gained). (Source: Social Entrepreneurship Lecture, Slide 11)" },
+            { topicId: 't12', q: "Which of the following business models corresponds to 'Social by Sourcing'?", opt: ["A. Grameen Bank (Microfinance).", "B. A Fair Trade coffee company that pays farmers a premium wage.", "C. The Gates Foundation (Grant-giving).", "D. Aravind Eyecare (Cross-subsidization)."], ans: "B", exp: "A Fair Trade coffee company that pays farmers a premium wage. (Source: Social Entrepreneurship Lecture, Slide 6)" },
+            { topicId: 't12', q: "According to the lecture, 'Impact' is specifically defined as:", opt: ["A. The amount of money raised from investors.", "B. The number of products sold.", "C. Change occurring in the lives of target audiences as a result of an action (Long-term societal change).", "D. The publicity generated by the venture."], ans: "C", exp: "Change occurring in the lives of target audiences as a result of an action (Long-term societal change). (Source: Social Entrepreneurship Lecture, Slide 9)" },
+            { topicId: 't12', q: "The 'Social Engineer' type of entrepreneur is characterized by:", opt: ["A. Addressing small, local problems with limited resources.", "B. Creating newer and more effective social systems (systemic change).", "C. Filling gaps in government services.", "D. Using engineering principles to build housing."], ans: "B", exp: "Creating newer and more effective social systems (systemic change). (Source: Social Entrepreneurship Lecture, Slide 8)" },
+            { topicId: 't12', q: "Which of the following describes a 'Social by Sharing' business model?", opt: ["A. A company that employs refugees to manufacture its goods.", "B. A company that sells solar lamps to off-grid villages.", "C. A company that exists to share some or all of its profits with charitable organizations (e.g., 'Buy one, give one').", "D. A company that shares its office space with NGOs."], ans: "C", exp: "A company that exists to share some or all of its profits with charitable organizations (e.g., 'Buy one, give one'). (Source: Social Entrepreneurship Lecture, Slide 6)" },
+            { topicId: 't12', q: "Dees (1998) lists five key behaviors of social entrepreneurs. Which of the following is NOT one of them?", opt: ["A. Adopting a mission to create and sustain social value.", "B. Acting boldly without being limited by resources currently at hand.", "C. Exhibiting a heightened sense of accountability to constituencies.", "D. Maximizing shareholder value above all else."], ans: "D", exp: "Maximizing shareholder value above all else. (Source: Social Entrepreneurship Lecture, Slide 3)" },
+            { topicId: 't12', q: "In the IOOI framework, 'Input' refers to:", opt: ["A. The number of lives touched.", "B. The financial means, time, knowledge, and human capital invested.", "C. The change in behavior of the target group.", "D. The societal impact."], ans: "B", exp: "The financial means, time, knowledge, and human capital invested. (Source: Social Entrepreneurship Lecture, Slide 11)" },
+            { topicId: 't12', q: "What distinguishes a 'Social Enterprise' from a 'Traditional Business with CSR'?", opt: ["A. Social Enterprises do not make a profit.", "B. CSR activities are peripheral; in a Social Enterprise, the social mission is core to the business model.", "C. Traditional businesses cannot have a social impact.", "D. Social Enterprises are always government-funded."], ans: "B", exp: "CSR activities are peripheral; in a Social Enterprise, the social mission is core to the business model. (Source: Social Entrepreneurship Lecture, Slide 5)" },
+            { topicId: 't12', q: "The 'Social Constructionist' entrepreneur focuses on:", opt: ["A. Building physical infrastructure.", "B. Providing goods/services that governments/businesses cannot or do not provide (filling gaps).", "C. Reforming the entire political system.", "D. Using local bricolage methods."], ans: "B", exp: "Providing goods/services that governments/businesses cannot or do not provide (filling gaps). (Source: Social Entrepreneurship Lecture, Slide 8)" },
+            { topicId: 't12', q: "According to the lecture, Zarah Bruhn (Social Bee) learned that social entrepreneurship is:", opt: ["A. A sprint, not a marathon.", "B. A marathon, not a sprint.", "C. Easy if you have passion.", "D. Only possible with government aid."], ans: "B", exp: "A marathon, not a sprint. (Source: Social Entrepreneurship Lecture, Slide 13)" },
+            { topicId: 't12', q: "Which example was given for a 'Social by Selling' business model?", opt: ["A. Oxfam (Sharing profits).", "B. Fair Trade Coffee (Sourcing).", "C. Grameen Bank (Selling microfinance services to the poor).", "D. Refugee integration programs."], ans: "C", exp: "Grameen Bank (Selling microfinance services to the poor). (Source: Social Entrepreneurship Lecture, Slide 6)" },
+            { topicId: 't12', q: "In the context of 'Impact', what is the 'Cause-and-Effect Relationship'?", opt: ["A. The link between the intervention (action) and the resulting impact (change).", "B. The relationship between the CEO and the Board.", "C. The link between marketing and sales.", "D. The correlation between profit and tax."], ans: "A", exp: "The link between the intervention (action) and the resulting impact (change). (Source: Social Entrepreneurship Lecture, Slide 9)" },
+            { topicId: 't12', q: "A 'NGO (for-profit)' is placed where on the business spectrum?", opt: ["A. Between Traditional Charity and Social Enterprise.", "B. Between Business Enterprise and Traditional Business.", "C. It is the same as a Traditional Business.", "D. It does not exist."], ans: "A", exp: "Between Traditional Charity and Social Enterprise. (Source: Social Entrepreneurship Lecture, Slide 5)" },
+            { topicId: 't12', q: "What does 'Impact' refer to in the long-term results of the IOOI model?", opt: ["A. Changes within the target group only.", "B. Changes beyond the target group (Environment, Community, Society).", "C. The number of articles published.", "D. The amount of capital raised."], ans: "B", exp: "Changes beyond the target group (Environment, Community, Society). (Source: Social Entrepreneurship Lecture, Slide 11)" },
+            { topicId: 't12', q: "Why do social businesses often 'scale' better than philanthropy?", opt: ["A. Because they rely on continuous donations.", "B. Because they generate their own revenue, allowing them to reinvest and grow without constant fundraising.", "C. Because they are tax-exempt.", "D. Because they have no competitors."], ans: "B", exp: "Because they generate their own revenue, allowing them to reinvest and grow without constant fundraising. (Source: Social Entrepreneurship Lecture, Slide 2)" },
+            { topicId: 't12', q: "Which component is NOT part of the IOOI framework?", opt: ["A. Input.", "B. Output.", "C. Outcome.", "D. Innovation."], ans: "D", exp: "Innovation. (Source: Social Entrepreneurship Lecture, Slide 11)" },
+            { topicId: 't12', q: "Austin et al. (2006) define social entrepreneurship as innovative activity that can occur:", opt: ["A. Only in the non-profit sector.", "B. Only in the government sector.", "C. Within or across the nonprofit, business, or government sectors.", "D. Only in the private business sector."], ans: "C", exp: "Within or across the nonprofit, business, or government sectors. (Source: Social Entrepreneurship Lecture, Slide 3)" },
+            { topicId: 't12', q: "What is the 'Downside' of being a passionate social entrepreneur mentioned in the Zarah Bruhn case?", opt: ["A. You make too much money.", "B. It is emotionally exhausting (a marathon), requiring resilience against crises.", "C. Investors do not like passion.", "D. You lose your friends."], ans: "B", exp: "It is emotionally exhausting (a marathon), requiring resilience against crises. (Source: Social Entrepreneurship Lecture, Slide 13)" },
+            { topicId: 't12', q: "Which of these is an example of 'Output' (Achievements)?", opt: ["A. Society becomes safer.", "B. Target group gains new knowledge.", "C. # of workshops conducted.", "D. Money invested."], ans: "C", exp: "# of workshops conducted. (Source: Social Entrepreneurship Lecture, Slide 11)" },
+            { topicId: 't12', q: "Social entrepreneurs are described as 'Change Agents' who engage in a process of:", opt: ["A. Static management.", "B. Continuous innovation, adaptation, and learning.", "C. Profit maximization.", "D. Strict adherence to government rules."], ans: "B", exp: "Continuous innovation, adaptation, and learning. (Source: Social Entrepreneurship Lecture, Slide 3)" },
+            { topicId: 't12', q: "The 'Social by Sharing' model includes organizations like:", opt: ["A. Grameen Bank.", "B. Fair Trade Shops.", "C. Ethical Investment Funds or Companies that donate significant profits (e.g., Gates Foundation).", "D. Government agencies."], ans: "C", exp: "Ethical Investment Funds or Companies that donate significant profits (e.g., Gates Foundation). (Source: Social Entrepreneurship Lecture, Slide 6)" },
+            { topicId: 't12', q: "What is 'Short-term results' in the IOOI framework?", opt: ["A. Output.", "B. Impact.", "C. Outcome (Direct change in target group).", "D. Input."], ans: "C", exp: "Outcome (Direct change in target group). (Source: Social Entrepreneurship Lecture, Slide 11)" },
+            { topicId: 't12', q: "The lecture states that different social problems require:", opt: ["A. The same solution.", "B. Different types of social entrepreneurs (Bricoleur, Constructionist, Engineer).", "C. More government intervention.", "D. Less regulation."], ans: "B", exp: "Different types of social entrepreneurs (Bricoleur, Constructionist, Engineer). (Source: Social Entrepreneurship Lecture, Slide 2 & 8)" },
+            { topicId: 't1', q: "In the context of 'Social Entrepreneurship', what distinguishes a Social Business from a traditional Non-Profit Organization (NPO)?", opt: ["A. A Social Business relies 100% on donations.", "B. A Social Business generates its own revenue to cover costs while solving a social problem.", "C. A Social Business distributes all profits to shareholders.", "D. There is no difference."], ans: "B", exp: "A Social Business generates its own revenue to cover costs while solving a social problem. (Source: Foundations)" },
+
+
+            // T13: Sustainable Entrepreneurship (20 Questions)
+            { topicId: 't13', q: "The concept of 'Sustainability' (Forestry) was originally introduced by Hans Carl von Carlowitz in 1713. What was the specific economic driver behind this concept at the time?", opt: ["A. A desire to preserve biodiversity for future generations.", "B. A tremendous population growth and high demand for wood as a raw material (Mining/Energy).", "C. Global warming caused by early industrialization.", "D. New regulations imposed by the King of Saxony."], ans: "B", exp: "A tremendous population growth and high demand for wood as a raw material (Mining/Energy). (Source: Sustainable Entrepreneurship Lecture, Slide 9)" },
+            { topicId: 't13', q: "According to Pigou (1932) and the Welfare Economics perspective, 'Market Failure' occurs specifically when:", opt: ["A. Supply exceeds demand.", "B. Private costs of production diverge from social costs of production (externalities).", "C. A monopoly dictates prices.", "D. Governments intervene in the free market."], ans: "B", exp: "Private costs of production diverge from social costs of production (externalities). (Source: Sustainable Entrepreneurship Lecture, Slide 14)" },
+            { topicId: 't13', q: "In the comparison of global progress indicators (1990-2010), what trend is observed regarding 'Gross Domestic Product' (GDP) vs. the 'Inclusive Wealth Index' (IWI)?", opt: ["A. Both have grown at the same rate.", "B. GDP has decreased, while IWI has increased.", "C. GDP has increased significantly, while IWI (adjusted) has decreased/stagnated, indicating a loss in natural capital.", "D. IWI is a better measure for short-term profit than GDP."], ans: "C", exp: "GDP has increased significantly, while IWI (adjusted) has decreased/stagnated, indicating a loss in natural capital. (Source: Sustainable Entrepreneurship Lecture, Slide 8)" },
+            { topicId: 't13', q: "How do Dean & McMullen (2007) synthesize 'Environmental Economics' and 'Entrepreneurship' to define Environmental Entrepreneurship?", opt: ["A. It is the process of discovering, evaluating, and exploiting economic opportunities that are present in environmentally relevant market failures.", "B. It is the charitable activity of cleaning up environmental damage caused by corporations.", "C. It is the creation of non-profit organizations to lobby for stricter environmental laws.", "D. It is the practice of 'Greenwashing' marketing strategies."], ans: "A", exp: "It is the process of discovering, evaluating, and exploiting economic opportunities that are present in environmentally relevant market failures. (Source: Sustainable Entrepreneurship Lecture, Slide 16)" },
+            { topicId: 't13', q: "According to Schaltegger and Wagner (2011), what is the 'Core Motivation' of an Environmental Entrepreneur?", opt: ["A. To maximize shareholder value above all else.", "B. To solve social inequality.", "C. To contribute to solving environmental problems AND create economic value (Earn money by solving problems).", "D. To operate strictly as a non-profit NGO."], ans: "C", exp: "To contribute to solving environmental problems AND create economic value (Earn money by solving problems). (Source: Sustainable Entrepreneurship Lecture, Slide 13)" },
+            { topicId: 't13', q: "The 'Triple-Bottom-Line' approach (Elkington 1994) suggests that which three dimensions should exist side by side on an equal footing?", opt: ["A. Input, Output, Impact.", "B. Profit, Planet, People (Economic, Ecological, Social).", "C. Politics, Policy, Public.", "D. Growth, Innovation, Scale."], ans: "B", exp: "Profit, Planet, People (Economic, Ecological, Social). (Source: Sustainable Entrepreneurship Lecture, Slide 12)" },
+            { topicId: 't13', q: "In the context of the 'Impact Formula' (Challenges for the 21st Century), Impact is the product of:", opt: ["A. Population x Affluence x Technology.", "B. Profit x Social Value x Environment.", "C. Investment x Innovation x Risk.", "D. Government x Private Sector x NGOs."], ans: "A", exp: "Population x Affluence x Technology. (Source: Sustainable Entrepreneurship Lecture, Slide 4)" },
+            { topicId: 't13', q: "Which historical publication/event from 1972 is associated with the 'Club of Rome' and the projection of resource depletion?", opt: ["A. Silent Spring.", "B. Our Common Future.", "C. The Limits to Growth.", "D. The Stockholm Declaration."], ans: "C", exp: "The Limits to Growth. (Source: Sustainable Entrepreneurship Lecture, Slide 10)" },
+            { topicId: 't13', q: "From the 'Entrepreneurial Opportunity Perspective', market failures are viewed as:", opt: ["A. Disasters that must be fixed by government regulation.", "B. Sources of opportunities for entrepreneurial action and profit (via exogenous shocks or information asymmetries).", "C. Proof that capitalism does not work.", "D. Irrelevant to business strategy."], ans: "B", exp: "Sources of opportunities for entrepreneurial action and profit (via exogenous shocks or information asymmetries). (Source: Sustainable Entrepreneurship Lecture, Slide 15)" },
+            { topicId: 't13', q: "The 'Brundtland Definition' (1987) of Sustainability focuses on:", opt: ["A. Maximizing short-term profit.", "B. Meeting the needs of the present without compromising the ability of future generations to meet their own needs.", "C. Protecting forests only.", "D. Eliminating all use of fossil fuels immediately."], ans: "B", exp: "Meeting the needs of the present without compromising the ability of future generations to meet their own needs. (Source: Sustainable Entrepreneurship Lecture, Slide 11)" },
+            { topicId: 't13', q: "What is the distinction between 'Private Costs' and 'Social Costs' of production?", opt: ["A. Private costs include taxes; Social costs do not.", "B. Private costs are incurred by the firm; Social costs include private costs PLUS costs incurred by society (e.g., pollution).", "C. Social costs are always lower than private costs.", "D. Private costs are variable; Social costs are fixed."], ans: "B", exp: "Private costs are incurred by the firm; Social costs include private costs PLUS costs incurred by society (e.g., pollution). (Source: Sustainable Entrepreneurship Lecture, Slide 14)" },
+            { topicId: 't13', q: "Which startup was used as an example of 'Environmental Entrepreneurship' focusing on sustainable coffee capsules?", opt: ["A. Nespresso.", "B. Rezemo.", "C. Starbucks.", "D. Keurig."], ans: "B", exp: "Rezemo. (Source: Sustainable Entrepreneurship Lecture, Slide 17)" },
+            { topicId: 't13', q: "Rachel Carson's book 'Silent Spring' (1962) is credited with raising awareness about:", opt: ["A. The dangers of nuclear power.", "B. The environmental damage caused by pesticides/chemicals.", "C. The hole in the ozone layer.", "D. Plastic in the oceans."], ans: "B", exp: "The environmental damage caused by pesticides/chemicals. (Source: Sustainable Entrepreneurship Lecture, Slide 10)" },
+            { topicId: 't13', q: "According to Shepherd & Patzelt (2011), 'Sustainable Entrepreneurship' differs from standard entrepreneurship because profit is construed to include:", opt: ["A. Only financial returns.", "B. Gains to people, the economy, and society (preservation of nature and life support).", "C. Government subsidies.", "D. Tax write-offs."], ans: "B", exp: "Gains to people, the economy, and society (preservation of nature and life support). (Source: Sustainable Entrepreneurship Lecture, Slide 13)" },
+            { topicId: 't13', q: "What are the two sources of opportunities in imperfect markets according to Dean & McMullen?", opt: ["A. High Prices and Low Quality.", "B. Exogenous Shocks (Altered demand/supply) and Asymmetries in Awareness (Knowledge).", "C. Government Deregulation and Tax Cuts.", "D. Social Media trends and Influencer marketing."], ans: "B", exp: "Exogenous Shocks (Altered demand/supply) and Asymmetries in Awareness (Knowledge). (Source: Sustainable Entrepreneurship Lecture, Slide 15)" },
+            { topicId: 't13', q: "The 'Great Smog of London' (1952) was a pivotal event because:", opt: ["A. It led to the invention of the steam engine.", "B. It demonstrated the lethal immediate consequences of unchecked industrial pollution (air apathy).", "C. It caused the stock market to crash.", "D. It was the first time solar power was used."], ans: "B", exp: "It demonstrated the lethal immediate consequences of unchecked industrial pollution (air apathy). (Source: Sustainable Entrepreneurship Lecture, Slide 10)" },
+            { topicId: 't13', q: "In the 'Environmental Economics Perspective', what is the solution to environmental degradation?", opt: ["A. Ignoring it.", "B. Eradicating market failure (internalizing externalities) to enhance allocative efficiency.", "C. Increasing production to lower costs.", "D. Banning all entrepreneurship."], ans: "B", exp: "Eradicating market failure (internalizing externalities) to enhance allocative efficiency. (Source: Sustainable Entrepreneurship Lecture, Slide 15)" },
+            { topicId: 't13', q: "Which of the following is NOT one of the 3 Ps in the Triple-Bottom-Line?", opt: ["A. Profit.", "B. Planet.", "C. People.", "D. Power."], ans: "D", exp: "Power. (Source: Sustainable Entrepreneurship Lecture, Slide 12)" },
+            { topicId: 't13', q: "What does the term 'Sylvicultura oeconomica' refer to?", opt: ["A. A famous painting of a forest.", "B. The first treatise on sustainable forestry management (1713).", "C. A biological theory about tree growth.", "D. An economic theory about inflation."], ans: "B", exp: "The first treatise on sustainable forestry management (1713). (Source: Sustainable Entrepreneurship Lecture, Slide 9)" },
+            { topicId: 't13', q: "The BP Gulf Oil Spill is cited in the lecture as an example of:", opt: ["A. Sustainable entrepreneurship.", "B. Short-term profit focus leading to long-term negative impact (Unsustainable behavior).", "C. Successful crisis management.", "D. Market efficiency."], ans: "B", exp: "Short-term profit focus leading to long-term negative impact (Unsustainable behavior). (Source: Sustainable Entrepreneurship Lecture, Slide 11)" },
+
+            // Guests / Cases
+            // G1: Streavent
+            { topicId: 'g1', q: "1. According to the guest lecture by Felix Schwencke (Streavent), what was their primary financing strategy to reach six-figure revenue in the first 5 months?", opt: ["A. They secured a large Venture Capital investment.", "B. They used Bootstrapping (financing via customer revenue).", "C. They received a government grant.", "D. They took out a bank loan."], ans: "B", exp: "The slides explicitly state they bootstrapped Streavent from 0 to six figures in revenue in 5 months [Source: Pitchdeck, Slide 13]." },
+            { topicId: 'g1', q: "2. Streavent's business model is best described as:", opt: ["A. Hardware manufacturing for events.", "B. A consultancy agency for event planning.", "C. Software as a Service (SaaS) / Pay-per-attendee.", "D. A non-profit organization."], ans: "C", exp: "Streavent provides event management software where customers 'pay per participant' (Pay-as-you-go) [Source: Pitchdeck, Slide 7]." },
+            { topicId: 'g1', q: "3. What core philosophy does the Streavent team use to describe their personal and professional growth?", opt: ["A. 'Fake it till you make it'.", "B. 'Level Up' - getting better from project to project.", "C. 'Move fast and break things'.", "D. 'Slow and steady wins the race'."], ans: "B", exp: "The slides emphasize the 'Level Up' concept: 'From project to project you get better', gaining hard/soft skills and resilience [Source: Pitchdeck, Slide 15]." },
+            { topicId: 'g1', q: "4. Which of the following was cited as a 'Low' (challenge) in Streavent's journey?", opt: ["A. Being unable to find a co-founder.", "B. An event crashed leading to a 6-figure insurance claim.", "C. A patent lawsuit from a competitor.", "D. Failing to develop the software."], ans: "B", exp: "One of the listed 'Lows' was: 'Event crashed, 6 figures insurance claim, fear of insolvency' [Source: Pitchdeck, Slide 13]." },
+            { topicId: 'g1', q: "5. Session 1 defined entrepreneurship (Shane, 2003) as the discovery, evaluation, and exploitation of opportunities. How did Streavent demonstrate the 'Exploitation' phase?", opt: ["A. By writing a business plan but never launching.", "B. By identifying that events needed digital solutions but waiting for investors.", "C. By building the platform, selling it to customers, and generating revenue.", "D. By complaining about existing event software."], ans: "C", exp: "Exploitation involves the actual mobilization of resources to create value. Streavent did this by building the software and selling it [Source: Summary Session 1, Slide 16 & Pitchdeck]." },
+            { topicId: 'g1', q: "6. In the context of the 'Introduction to Entrepreneurship' (Topic 1), Streavent is an example of which type of entrepreneurship?", opt: ["A. Necessity-driven Entrepreneurship.", "B. Opportunity-driven Entrepreneurship.", "C. Corporate Entrepreneurship.", "D. Social Entrepreneurship (Non-profit)."], ans: "B", exp: "Streavent was founded to solve a problem and capture a market opportunity (Pull factor), not out of unemployment or necessity [Source: 8 Questions... Slide 14 & Pitchdeck]." },
+            { topicId: 'g1', q: "7. The Session 1 summary highlights 'Mobilizing Resources'. How does Streavent's bootstrapping approach relate to this?", opt: ["A. It shows they failed to mobilize any resources.", "B. It demonstrates mobilizing internal resources and customer revenue instead of external equity.", "C. It proves that resources are not necessary for entrepreneurship.", "D. It indicates they mobilized political resources only."], ans: "B", exp: "Bootstrapping is a specific way of mobilizing resources (financial) by using one's own means and operating cash flow [Source: Summary Session 1, Slide 16]." },
+            { topicId: 'g1', q: "8. Considering the 'Entrepreneurial Mindset' discussed in Session 1, which trait did Felix Schwencke emphasize as crucial for handling the 'Highs and Lows'?", opt: ["A. Risk aversion.", "B. Resilience.", "C. Pessimism.", "D. Perfectionism."], ans: "B", exp: "The slides discuss 'Resilience Increases' and dealing with 'unknown situations' and 'fears' as part of the 'Level Up' mindset [Source: Pitchdeck, Slide 15]." },
+
+            // G2: MEDEA
+            { topicId: 'g2', q: "1. What is the core technology behind MEDEA Biopharma's solution?", opt: ["A. Synthetic chemical antibiotics", "B. Bacteriophages (Phages)", "C. AI-driven diagnostics", "D. Herbal supplements"], ans: "B", exp: "MEDEA develops antibacterial solutions using Bacteriophages, which are natural biological predators of bacteria [Source: Pitchdeck, Slide 4]." },
+            { topicId: 'g2', q: "2. According to the guest lecture, what is a key advantage of using Phages over traditional antibiotics?", opt: ["A. They are cheaper to produce.", "B. They evolve faster than bacteria and can outpace resistance.", "C. They are synthetic and easier to patent.", "D. They treat viral infections as well."], ans: "B", exp: "The slides highlight that Phages 'Evolve faster & outpace resistance' and are 'Effective against resistant bacteria' [Source: Pitchdeck, Slide 4]." },
+            { topicId: 'g2', q: "3. How has MEDEA Biopharma financed its operations so far?", opt: ["A. Exclusively through bank loans.", "B. Solely through bootstrapping (customer revenue).", "C. A mix of non-dilutive grants (e.g., EXIST, TechFounders) and Pre-seed VC investment.", "D. Through an Initial Public Offering (IPO)."], ans: "C", exp: "The slides list 'Non-dilutive Grants' (like Start2, TechFounders) and 'Pre-seed By 2 VCs' as their funding mix [Source: Pitchdeck, Slide 5]." },
+            { topicId: 'g2', q: "4. What describes the entrepreneurial background of MEDEA's co-founder, Giorgi Khubua?", opt: ["A. He is a first-time founder.", "B. He is a serial entrepreneur who previously had an exit with 'Solos Mirrors'.", "C. He came directly from a corporate management role.", "D. He is a pure academic with no business experience."], ans: "B", exp: "The presentation lists his entrepreneurial path: 'Solos mirrors (Exit)' and 'Medea Bio (Active)' [Source: Pitchdeck, Slide 10]." },
+            { topicId: 'g2', q: "5. Which Design Thinking principle is most relevant to MEDEA's focus on 'safe with zero side-effects'?", opt: ["A. Viability (Business focus)", "B. Feasibility (Technical focus)", "C. Desirability (Human focus)", "D. Scalability"], ans: "C", exp: "Creating a solution that is safe for patients and has no side effects primarily addresses the Human need (Desirability) for better care." },
+            { topicId: 'g2', q: "6. Why is the 'Eclectic Theory' (OLI) particularly relevant for a biotech firm like MEDEA if they want to expand internationally?", opt: ["A. Because they need cheap labor (Location advantage).", "B. Because they rely on protecting their unique technology/IP (Ownership advantage).", "C. Because they want to avoid exporting.", "D. Because they have no unique technology."], ans: "B", exp: "Biotech firms rely heavily on 'Ownership' advantages (Patents/IP) to protect their unique technology when entering new markets [Source: General Lecture Content applied to MEDEA]." },
+            { topicId: 'g2', q: "7. What is the primary mission of MEDEA Biopharma?", opt: ["A. To create the cheapest drug on the market.", "B. To rewrite the rules of bacteria control and fight antibiotic resistance.", "C. To build a digital health app.", "D. To manufacture surgical equipment."], ans: "B", exp: "The title slide states their mission: 'Rewriting the Rules of Bacteria Control' [Source: Pitchdeck, Slide 3]." },
+
+            // G5: Building Atlas
+            { topicId: 'g5', q: "1. Olga Khroustaleva identified that 80% of the buildings that will exist in 2050 are already built today, creating a massive need for retrofitting. Which source of entrepreneurial opportunity does this primarily represent?", opt: ["A. Demographic Change", "B. Incongruities (Gap between reality and 'what should be')", "C. New Knowledge", "D. Unexpected Occurrences"], ans: "B", exp: "This represents an incongruity or gap: current buildings are inefficient, but climate goals require them to be net-zero. This gap creates the opportunity for retrofitting." },
+            { topicId: 'g5', q: "2. The lecture highlighted that 'Regulations' (e.g., EPC standards rising to 'C' by 2027) are a major driver for the retrofitting market. In the PEST framework, this is a:", opt: ["A. Political / Legal Change", "B. Economic Change", "C. Social Change", "D. Technological Change"], ans: "A", exp: "New laws and standards (like the Minimum Energy Efficiency Standards mentioned in the slides) are Political/Legal drivers of opportunity." },
+            { topicId: 'g5', q: "3. Olga mentioned leaving her long-term career at Google to 'dedicate her second chapter to climate'. This decision is best described by which entrepreneurial motive?", opt: ["A. Necessity-driven Entrepreneurship", "B. Profit Maximization", "C. Mission-driven / Social Value Creation", "D. Need for Power"], ans: "C", exp: "Her goal to 'prevent one billion tons of CO2' indicates a strong mission-driven motivation, characteristic of social/sustainable entrepreneurship." },
+            { topicId: 'g5', q: "4. Building Atlas spent nearly a year on 'Discovery' (hundreds of meetings/interviews) before building the technology. What is the primary purpose of this phase?", opt: ["A. To delay spending money.", "B. To validate the problem and ensure Product-Market Fit before scaling.", "C. To hire as many employees as possible.", "D. To secure a patent."], ans: "B", exp: "The Discovery phase is used to answer 'Is it a real problem?' and 'Is anyone willing to pay?', avoiding the risk of building something nobody wants." },
+            { topicId: 'g5', q: "5. The lecture noted that 'Organizations that need Building Atlas can't pay' (e.g., public sector procurement issues). This illustrates which common entrepreneurial challenge?", opt: ["A. Technical Infeasibility", "B. Lack of Competitors", "C. Misalignment between User Needs and Customer Purchasing Power", "D. Regulatory Barriers"], ans: "C", exp: "A classic business modeling issue: the user (who benefits from the retrofit) is not always the customer (who has the budget/process to buy the software)." },
+            { topicId: 'g5', q: "6. When market conditions changed (e.g., interest rates rose, climate focus shifted), Building Atlas had to adapt ('Expand or Die') by leveraging new AI agents. This adaptation is an example of:", opt: ["A. Causal Planning", "B. The Lemonade Principle (Effectuation)", "C. Market Penetration", "D. Risk Avoidance"], ans: "B", exp: "The Lemonade Principle involves embracing unexpected events (surprises/bad news) and pivoting the strategy to leverage new realities (like better AI tech)." },
+            { topicId: 'g5', q: "7. The lecture slide 'The world in 2023' vs. 'The world has changed' (HSBC delays net-zero targets) highlights that entrepreneurial opportunities are:", opt: ["A. Static and permanent.", "B. Solely dependent on the founder's personality.", "C. Time-dependent and influenced by exogenous shocks.", "D. Guaranteed to succeed if the technology is good."], ans: "C", exp: "Opportunities are 'windows' that open and close based on external factors (economic climate, political will)." },
+            { topicId: 'g5', q: "8. Building Atlas aims to use AI to help owners analyze portfolios and plan retrofits. This combines 'Real Estate' with 'Artificial Intelligence'. Which creativity technique does this resemble?", opt: ["A. Conceptual Combination", "B. WIBNI (Wouldn't It Be Nice If)", "C. Problem Reversal", "D. Attribute Listing"], ans: "A", exp: "Conceptual Combination involves merging two previously distinct concepts (in this case, old-school Real Estate management + modern Generative AI) to create new value." },
+
+            // G3: TUM Hyperloop
+            { topicId: 'g3', q: "1. In the context of Prototyping, the TUM Hyperloop team participated in four SpaceX Pod Competitions before building their full-scale demonstrator. What is the main entrepreneurial benefit of this approach?", opt: ["A. To delay the project as long as possible.", "B. To engage in iterative prototyping: learning from smaller, cheaper failures before building the expensive full-scale system.", "C. To avoid having to build a business model.", "D. To focus solely on marketing without developing technology."], ans: "B", exp: "This illustrates the principle of 'Fail early and often'. The competitions served as earlier iterations (learning cycles) to validate technology before investing in the massive 'Demonstrator' [Source: Hyperloop Slides, Slide 14 & Prototyping Theory]." },
+            { topicId: 'g3', q: "2. Slide 23 of the Hyperloop presentation shows a detailed interior with seats, lighting, and screens ('Architecture, design, and comfort'). Which Design Thinking lens is this prototype primarily testing?", opt: ["A. Feasibility (Technical Function)", "B. Viability (Business Model)", "C. Desirability (Human Experience)", "D. Manufacturability (Production Cost)"], ans: "C", exp: "While the tube tests technical Feasibility, the interior prototype focuses on the passenger experience to ensure the solution is desirable to humans (comfort, trust, aesthetics) [Source: Hyperloop Slides, Slide 23]." },
+            { topicId: 'g3', q: "3. The 'TUM Hyperloop Demonstrator' (Slides 15-20) is a 24-meter concrete tube certified for passenger transport. In prototyping terms, this is best described as:", opt: ["A. A Low-Resolution Prototype (like a paper sketch).", "B. A High-Fidelity / Integrated Model aimed at validation.", "C. A Virtual Prototype.", "D. A 'Dark Horse' prototype."], ans: "B", exp: "The Demonstrator is a sophisticated, functioning system used to validate the technology under real conditions (vacuum, passenger certification). It represents the 'Validate' stage of prototyping [Source: Hyperloop Slides, Slide 20]." },
+            { topicId: 'g3', q: "4. Slide 13 ('And a bit of Luck') shows a messy table with loose wires and components. How does this relate to the concept of 'Low-Resolution' prototyping?", opt: ["A. It shows that the team was disorganized.", "B. It represents 'Building to Think'—testing specific functions (subsystems) cheaply and quickly without worrying about the final look.", "C. It proves that hardware startups are too risky.", "D. It is the final product ready for sale."], ans: "B", exp: "Early prototypes (like the messy electronics) are often 'low-res' and focused on testing specific functions ('Does this circuit work?') rather than the whole system [Source: Hyperloop Slides, Slide 13]." },
+            { topicId: 'g3', q: "5. The Hyperloop project faces the 'Valley of Death' (finance). How does their prototyping strategy (building a certified passenger demonstrator) help overcome this?", opt: ["A. It increases the burn rate without any benefit.", "B. It serves as 'Legitimacy Building', proving to investors and politicians that the technology is safe and viable, thus unlocking future funding.", "C. It allows them to sell tickets immediately.", "D. It replaces the need for a business plan."], ans: "B", exp: "For Deep Tech, a working high-fidelity prototype (Demonstrator) is crucial to prove 'Feasibility' and gain the legitimacy needed to survive the Valley of Death and attract large-scale funding [Source: Hyperloop Strategy Slide 3]." },
+
+            { topicId: 'g4', q: "10. Personio is a TUM spin-off that achieved 'Unicorn' status. What does this mean?", opt: ["A. It is a mythical creature.", "B. It is a private startup valued at over $1 Billion.", "C. It is a social enterprise.", "D. It has 100 employees."], ans: "B", exp: "The standard definition of a Unicorn in the lecture is a private startup valued > $1 Billion." },
+            { topicId: 'g4', q: "11. Looking at Personio's Business Model Canvas (BMC), what is their primary 'Customer Segment'?", opt: ["A. Private individual consumers (B2C).", "B. Small and Medium-sized Enterprises (SMEs) worldwide.", "C. Large government agencies only.", "D. Hardware manufacturers."], ans: "B", exp: "The BMC slides identify 'Small and medium-sized enterprises worldwide' and 'HR departments' as the segment." },
+            { topicId: 'g4', q: "12. In the Personio BMC, 'Software Development' and 'Maintaining Platform' are listed under which block?", opt: ["A. Value Propositions", "B. Key Activities", "C. Customer Relationships", "D. Channels"], ans: "B", exp: "Key Activities describe *what* the company must do to make the business model work (producing/maintaining the software)." },
+            { topicId: 'g4', q: "18. If Personio uses a 'Subscription Model' (SaaS), how does this affect their 'Customer Lifetime Value' (CLV)?", opt: ["A. It makes CLV irrelevant.", "B. It increases CLV as customers pay recurringly over a long period.", "C. It decreases CLV because they only pay once.", "D. It forces them to sell hardware."], ans: "B", exp: "Subscription models rely on retaining customers over time, leading to high CLV compared to one-time sales." },
+            { topicId: 'g4', q: "19. Which entry strategy did Personio likely use? (B2B HR Software)", opt: ["A. Market Penetration (selling existing products to existing markets).", "B. Diversification (new products to new markets).", "C. New Entry (innovative product in a growing market).", "D. Harvesting."], ans: "C", exp: "They entered with a new digital solution for SMEs, capturing market share from traditional (manual) HR methods." }
+        ];
+
+        // Initialize Question IDs
+        allQuestions.forEach((q, index) => {
+            q.id = `q${index}`;
+        });
+
+        // --- STATE ---
+        let currentMode = null; // 'topic' or 'random'
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+        let activeTopicId = null;
+        let currentShuffledProps = null; // Stores { options: [], correctAns: 'A' } for current Q
+
+        // --- DOM ELEMENTS ---
+        const screens = {
+            menu: document.getElementById('menu-screen'),
+            topic: document.getElementById('topic-screen'),
+            quiz: document.getElementById('quiz-screen'),
+            results: document.getElementById('results-screen')
+        };
+
+        // --- INITIALIZATION ---
+        function init() {
+            renderTopicList();
+        }
+
+        // --- NAVIGATION ---
+        function showScreen(screenName) {
+            Object.values(screens).forEach(s => s.classList.add('hidden'));
+            screens[screenName].classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showMenu() {
+            document.getElementById('menu-screen').classList.remove('hidden');
+            document.getElementById('topic-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('results-screen').classList.add('hidden');
+            document.getElementById('flashcard-screen').classList.add('hidden');
+            renderTopicList(); // Refresh scores
+        }
+
+        function showTopics() {
+            document.getElementById('menu-screen').classList.add('hidden');
+            document.getElementById('topic-screen').classList.remove('hidden');
+        }
+
+        function showFlashcards() {
+            document.getElementById('menu-screen').classList.add('hidden');
+            document.getElementById('flashcard-play-screen').classList.add('hidden'); // Ensure play screen is hidden
+            document.getElementById('flashcard-screen').classList.remove('hidden');
+            updateFlashcardCounts();
+        }
+
+        function updateFlashcardCounts() {
+            const counts = FlashcardManager.getCounts();
+            document.getElementById('fc-count-wrong').innerText = counts.wrong;
+            document.getElementById('fc-count-new').innerText = counts.new;
+            document.getElementById('fc-count-correct').innerText = counts.correct;
+        }
+
+        // --- FLASHCARD SESSION LOGIC ---
+        let fcSessionQuestions = [];
+        let fcIndex = 0;
+        let fcCurrentQ = null;
+
+        function startFlashcardSession(status) {
+            const questions = FlashcardManager.getQuestionsByStatus(status);
+            if (questions.length === 0) {
+                alert("No questions in this deck!");
+                return;
+            }
+            // Shuffle
+            questions.sort(() => Math.random() - 0.5);
+
+            // Limit to 20
+            fcSessionQuestions = questions.slice(0, 20);
+            fcIndex = 0;
+
+            // Show Screen
+            document.getElementById('flashcard-screen').classList.add('hidden');
+            document.getElementById('flashcard-play-screen').classList.remove('hidden');
+
+            loadFlashcard();
+        }
+
+        function loadFlashcard() {
+            if (fcIndex >= fcSessionQuestions.length) {
+                // End of session
+                showFlashcards();
+                return;
+            }
+
+            fcCurrentQ = fcSessionQuestions[fcIndex];
+
+            // Update Progress
+            document.getElementById('fc-progress').innerText = `${fcIndex + 1} / ${fcSessionQuestions.length}`;
+
+            // Reset UI
+            const card = document.getElementById('flashcard-card');
+            const front = document.getElementById('fc-front');
+            const back = document.getElementById('fc-back');
+            const controls = document.getElementById('fc-controls');
+
+            front.classList.remove('hidden', 'opacity-0');
+            back.classList.add('hidden', 'opacity-0');
+            controls.classList.add('opacity-0', 'pointer-events-none');
+
+            // Set Content
+            document.getElementById('fc-question').innerText = fcCurrentQ.q;
+
+            // Find full answer text
+            // opt is ["A. ...", "B. ..."]
+            // ans is "B"
+            const correctOptText = fcCurrentQ.opt.find(o => o.startsWith(fcCurrentQ.ans));
+            document.getElementById('fc-answer').innerText = correctOptText || fcCurrentQ.ans;
+            document.getElementById('fc-explanation').innerText = fcCurrentQ.exp;
+        }
+
+        function flipCard() {
+            const front = document.getElementById('fc-front');
+            const back = document.getElementById('fc-back');
+            const controls = document.getElementById('fc-controls');
+
+            // If already flipped, do nothing (or toggle? Let's stick to reveal flow)
+            if (!back.classList.contains('hidden')) return;
+
+            // Hide Front
+            front.classList.add('opacity-0');
+            setTimeout(() => {
+                front.classList.add('hidden');
+
+                // Show Back
+                back.classList.remove('hidden');
+                // Small delay to allow display:block to apply before opacity transition
+                requestAnimationFrame(() => {
+                    back.classList.remove('opacity-0');
+                    controls.classList.remove('opacity-0', 'pointer-events-none');
+                });
+            }, 300);
+        }
+
+        function rateCard(isCorrect) {
+            FlashcardManager.updateStatus(fcCurrentQ.id, isCorrect);
+            fcIndex++;
+            loadFlashcard();
+        }
+
+        function startRandomQuiz() {
+            const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 10);
+            startQuiz(selected, "Random Quiz");
+        }
+
+        function startTopicQuiz(topicId) {
+            // Reset stats for this topic session
+            localStorage.removeItem(`quiz_stats_${topicId}`);
+
+            const topicQuestions = allQuestions.filter(q => q.topicId === topicId);
+            const topicName = [...topics, ...guestLectures].find(t => t.id === topicId)?.name || "Topic Quiz";
+            startQuiz(topicQuestions, topicName);
+        }
+
+        function startQuiz(questions, modeLabel) {
+            currentQuizQuestions = questions;
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+            currentMode = modeLabel; // Store mode for display
+
+            document.getElementById('menu-screen').classList.add('hidden');
+            document.getElementById('topic-screen').classList.add('hidden');
+            document.getElementById('flashcard-screen').classList.add('hidden');
+            document.getElementById('results-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            document.getElementById('quiz-mode-label').innerText = modeLabel;
+            loadQuestion();
+        }
+
+        function confirmExit() {
+            if (confirm("Quit current quiz?")) {
+                showMenu();
+            }
+        }
+
+        // --- TOPIC LOGIC ---
+        function renderTopicList() {
+            const topicContainer = document.getElementById('topics-list');
+            const guestContainer = document.getElementById('guests-list');
+
+            topicContainer.innerHTML = '';
+            guestContainer.innerHTML = '';
+
+            // Helper to create cards
+            const createCard = (item) => {
+                const qCount = allQuestions.filter(q => q.topicId === item.id).length;
+                const history = JSON.parse(localStorage.getItem(`quiz_stats_${item.id}`)) || { correct: 0, total: 0 };
+                const rate = history.total > 0 ? Math.round((history.correct / history.total) * 100) : 0;
+
+                // Color coding for progress
+                let progressColor = 'text-gray-400';
+                if (history.total > 0) {
+                    progressColor = rate >= 80 ? 'text-green-500' : (rate >= 50 ? 'text-yellow-500' : 'text-red-500');
+                }
+
+                return `
+                    <button onclick="startTopicQuiz('${item.id}')" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 hover:shadow-md transition-all text-left flex justify-between items-center group">
+                        <div>
+                            <h4 class="font-bold text-gray-800 group-hover:text-blue-600 transition-colors">${item.name}</h4>
+                            <div class="text-xs text-gray-500 mt-1">${qCount} Questions</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold ${progressColor}">${rate}%</div>
+                            <div class="text-[10px] text-gray-400 uppercase tracking-wider">Last Score</div>
+                        </div>
+                    </button>
+                `;
+            };
+
+            topics.forEach(t => topicContainer.innerHTML += createCard(t));
+            guestLectures.forEach(g => guestContainer.innerHTML += createCard(g));
+        }
+
+        // --- QUIZ LOGIC ---
+        function startTopicQuiz(topicId) {
+            currentMode = 'topic';
+            activeTopicId = topicId;
+            currentQuestions = allQuestions.filter(q => q.topicId === topicId);
+
+            if (currentQuestions.length === 0) {
+                alert("No questions available for this topic yet!");
+                return;
+            }
+
+            // Reset stats for this session so we track the NEW score
+            localStorage.setItem(`quiz_stats_${topicId}`, JSON.stringify({ correct: 0, total: 0 }));
+
+            startQuizSession();
+        }
+
+        function startRandomQuiz() {
+            currentMode = 'random';
+            activeTopicId = 'random';
+            // Shuffle and pick ALL questions
+            currentQuestions = [...allQuestions].sort(() => 0.5 - Math.random());
+            startQuizSession();
+        }
+
+        function startQuizSession() {
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+
+            document.getElementById('quiz-mode-label').innerText = currentMode === 'topic'
+                ? (topics.find(t => t.id === activeTopicId)?.name || guestLectures.find(g => g.id === activeTopicId)?.name)
+                : "Random Practice";
+
+            showScreen('quiz');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = currentQuestions[currentQuestionIndex];
+
+            // Progress
+            document.getElementById('progress-text').innerText = `${currentQuestionIndex + 1}/${currentQuestions.length}`;
+            document.getElementById('progress-bar').style.width = `${((currentQuestionIndex + 1) / currentQuestions.length) * 100}%`;
+
+            // Content
+            document.getElementById('question-text').innerText = q.q;
+            const optsDiv = document.getElementById('options-container');
+            optsDiv.innerHTML = '';
+
+            // Hide feedback & next button if they exist (or clear them)
+            const feedbackDiv = document.getElementById('feedback-container');
+            if (feedbackDiv) feedbackDiv.classList.add('hidden');
+            const nextBtn = document.getElementById('next-btn');
+            if (nextBtn) nextBtn.classList.add('hidden');
+
+            // --- SHUFFLE LOGIC ---
+            // 1. Extract text and identify correct text
+            const originalOpts = q.opt.map(o => ({
+                letter: o.charAt(0),
+                text: o.substring(3)
+            }));
+            const correctText = originalOpts.find(o => o.letter === q.ans).text;
+
+            // 2. Shuffle the text objects
+            const shuffledOpts = [...originalOpts].sort(() => 0.5 - Math.random());
+
+            // 3. Re-assign letters A, B, C, D
+            const finalOptions = shuffledOpts.map((item, index) => {
+                const newLetter = String.fromCharCode(65 + index); // A, B, C...
+                return {
+                    letter: newLetter,
+                    text: item.text,
+                    isCorrect: item.text === correctText
+                };
+            });
+
+            // 4. Determine new correct answer letter
+            const newCorrectAns = finalOptions.find(o => o.isCorrect).letter;
+
+            // 5. Store for validation
+            currentShuffledProps = {
+                options: finalOptions,
+                correctAns: newCorrectAns
+            };
+
+            // Render
+            finalOptions.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.id = `opt-btn-${opt.letter}`; // Add ID for easy selection
+                btn.className = "w-full text-left p-5 bg-gray-50 hover:bg-blue-50 border border-gray-200 rounded-xl transition-all duration-200 flex items-center group option-btn";
+                btn.onclick = () => selectAnswer(opt.letter);
+
+                btn.innerHTML = `
+                    <span id="opt-icon-${opt.letter}" class="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-white border border-gray-300 rounded-full text-gray-600 font-bold mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">${opt.letter}</span>
+                    <span class="text-gray-700 font-medium group-hover:text-blue-800">${opt.text}</span>
+                `;
+                optsDiv.appendChild(btn);
+            });
+        }
+
+        function selectAnswer(selectedLetter) {
+            const q = currentQuestions[currentQuestionIndex];
+            const isCorrect = selectedLetter === currentShuffledProps.correctAns;
+
+            // Disable all buttons
+            const allBtns = document.querySelectorAll('.option-btn');
+            allBtns.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add('opacity-70', 'cursor-not-allowed');
+                btn.classList.remove('hover:bg-blue-50');
+            });
+
+            // Highlight Selected
+            const selectedBtn = document.getElementById(`opt-btn-${selectedLetter}`);
+            const selectedIcon = document.getElementById(`opt-icon-${selectedLetter}`);
+
+            if (isCorrect) {
+                selectedBtn.classList.remove('bg-gray-50', 'border-gray-200');
+                selectedBtn.classList.add('bg-green-100', 'border-green-500');
+                selectedIcon.classList.remove('bg-white', 'border-gray-300', 'text-gray-600');
+                selectedIcon.classList.add('bg-green-500', 'border-green-500', 'text-white');
+            } else {
+                selectedBtn.classList.remove('bg-gray-50', 'border-gray-200');
+                selectedBtn.classList.add('bg-red-100', 'border-red-500');
+                selectedIcon.classList.remove('bg-white', 'border-gray-300', 'text-gray-600');
+                selectedIcon.classList.add('bg-red-500', 'border-red-500', 'text-white');
+
+                // Highlight Correct Answer
+                const correctBtn = document.getElementById(`opt-btn-${currentShuffledProps.correctAns}`);
+                const correctIcon = document.getElementById(`opt-icon-${currentShuffledProps.correctAns}`);
+                correctBtn.classList.remove('bg-gray-50', 'border-gray-200');
+                correctBtn.classList.add('bg-green-100', 'border-green-500');
+                correctIcon.classList.remove('bg-white', 'border-gray-300', 'text-gray-600');
+                correctIcon.classList.add('bg-green-500', 'border-green-500', 'text-white');
+            }
+
+            // Show Feedback
+            const feedbackDiv = document.getElementById('feedback-container');
+            const feedbackText = document.getElementById('feedback-text');
+            feedbackText.innerHTML = `<strong>${isCorrect ? 'Correct!' : 'Incorrect.'}</strong> ${q.exp}`;
+            feedbackDiv.classList.remove('hidden');
+            feedbackDiv.className = `mt-6 p-4 rounded-xl border ${isCorrect ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800'} animate-fade-in`;
+
+            // Show Next Button
+            document.getElementById('next-btn').classList.remove('hidden');
+
+            // Reconstruct options array for review (e.g. ["A. Text", "B. Text"])
+            const reviewOptions = currentShuffledProps.options.map(o => `${o.letter}. ${o.text}`);
+
+            userAnswers.push({
+                question: q.q,
+                selected: selectedLetter,
+                correct: currentShuffledProps.correctAns,
+                options: reviewOptions,
+                explanation: q.exp,
+                isCorrect: isCorrect
+            });
+
+            if (isCorrect) score++;
+
+            // Update Stats (if in topic mode) - Accumulate for this session
+            if (currentMode === 'topic') {
+                updateStats(activeTopicId, isCorrect);
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < currentQuestions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function updateStats(topicId, isCorrect) {
+            const key = `quiz_stats_${topicId}`;
+            const stats = JSON.parse(localStorage.getItem(key)) || { correct: 0, total: 0 };
+            stats.total++;
+            if (isCorrect) stats.correct++;
+            localStorage.setItem(key, JSON.stringify(stats));
+        }
+
+        function showResults() {
+            showScreen('results');
+
+            const percentage = Math.round((score / currentQuestions.length) * 100);
+            document.getElementById('score-percentage').innerText = `${percentage}%`;
+            document.getElementById('score-text').innerText = `You got ${score} out of ${currentQuestions.length} correct.`;
+
+            const reviewDiv = document.getElementById('review-container');
+            reviewDiv.innerHTML = '';
+
+            userAnswers.forEach(item => {
+                const card = document.createElement('div');
+                card.className = `p-6 rounded-2xl border-l-4 ${item.isCorrect ? 'bg-green-50 border-green-500' : 'bg-red-50 border-red-500'}`;
+
+                let optionsHtml = '';
+                item.options.forEach(opt => {
+                    const letter = opt.charAt(0);
+                    let style = "text-gray-500";
+                    let icon = "";
+
+                    if (letter === item.correct) {
+                        style = "text-green-700 font-bold";
+                        icon = "✓";
+                    } else if (letter === item.selected && !item.isCorrect) {
+                        style = "text-red-700 font-bold";
+                        icon = "✗";
+                    }
+
+                    optionsHtml += `<div class="flex justify-between ${style} py-1"><span>${opt}</span><span>${icon}</span></div>`;
+                });
+
+                card.innerHTML = `
+                    <p class="font-bold text-gray-900 mb-3">${item.question}</p>
+                    <div class="space-y-1 mb-4 text-sm bg-white bg-opacity-60 p-3 rounded-lg">
+                        ${optionsHtml}
+                    </div>
+                    <div class="text-xs text-gray-600 bg-white p-3 rounded-lg border border-gray-100">
+                        <span class="font-bold text-blue-600">Explanation:</span> ${item.explanation}
+                    </div>
+                `;
+                reviewDiv.appendChild(card);
+            });
+        }
+
+        function retryQuiz() {
+            if (currentMode === 'topic') startTopicQuiz(activeTopicId);
+            else startRandomQuiz();
+        }
+
+        // Start
+        init();
+
+    </script>
+</body>
+
+</html>
